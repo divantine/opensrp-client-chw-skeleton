@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.activity;
+package org.smartregister.chw.tbleprosy_sample.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,15 +10,15 @@ import org.smartregister.chw.tbleprosy.activity.BaseTBLeprosyVisitActivity;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.presenter.BaseTBLeprosyVisitPresenter;
 import org.smartregister.chw.tbleprosy.util.Constants;
-import org.smartregister.chw.skeleton_sample.interactor.TBLeprosyServiceVisitInteractor;
+import org.smartregister.chw.tbleprosy_sample.interactor.TBLeprosyServiceVisitInteractor;
 
 
 public class TBLeprosyServiceActivity extends BaseTBLeprosyVisitActivity {
-    public static void startSkeletonVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
+    public static void starttbleprosyVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
         Intent intent = new Intent(activity, TBLeprosyServiceActivity.class);
         intent.putExtra(org.smartregister.chw.tbleprosy.util.Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
         intent.putExtra(org.smartregister.chw.tbleprosy.util.Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
-        intent.putExtra(org.smartregister.chw.tbleprosy.util.Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.SKELETON_PROFILE);
+        intent.putExtra(org.smartregister.chw.tbleprosy.util.Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.tbleprosy_PROFILE);
         activity.startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
     }
 
@@ -29,7 +29,7 @@ public class TBLeprosyServiceActivity extends BaseTBLeprosyVisitActivity {
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseTBLeprosyVisitPresenter(memberObject, this, new TBLeprosyServiceVisitInteractor(Constants.EVENT_TYPE.SKELETON_SERVICES));
+        presenter = new BaseTBLeprosyVisitPresenter(memberObject, this, new TBLeprosyServiceVisitInteractor(Constants.EVENT_TYPE.tbleprosy_SERVICES));
     }
 
     @Override

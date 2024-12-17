@@ -31,7 +31,7 @@ public class TBLeprosyDao extends AbstractDao {
         memberObject.setPrimaryCareGiver(getCursorValue(cursor, "primary_caregiver"));
         memberObject.setFamilyName(getCursorValue(cursor, "family_name", ""));
         memberObject.setPhoneNumber(getCursorValue(cursor, "phone_number", ""));
-        memberObject.setSkeletonTestDate(getCursorValueAsDate(cursor, "skeleton_test_date", df));
+        memberObject.settbleprosyTestDate(getCursorValueAsDate(cursor, "tbleprosy_test_date", df));
         memberObject.setBaseEntityId(getCursorValue(cursor, "base_entity_id", ""));
         memberObject.setFamilyHead(getCursorValue(cursor, "family_head", ""));
         memberObject.setFamilyHeadPhoneNumber(getCursorValue(cursor, "pcg_phone_number", ""));
@@ -57,10 +57,10 @@ public class TBLeprosyDao extends AbstractDao {
         return memberObject;
     };
 
-    public static Date getSkeletonTestDate(String baseEntityID) {
-        String sql = "select skeleton_test_date from ec_skeleton_enrollment where base_entity_id = '" + baseEntityID + "'";
+    public static Date gettbleprosyTestDate(String baseEntityID) {
+        String sql = "select tbleprosy_test_date from ec_tbleprosy_enrollment where base_entity_id = '" + baseEntityID + "'";
 
-        DataMap<Date> dataMap = cursor -> getCursorValueAsDate(cursor, "skeleton_test_date", getNativeFormsDateFormat());
+        DataMap<Date> dataMap = cursor -> getCursorValueAsDate(cursor, "tbleprosy_test_date", getNativeFormsDateFormat());
 
         List<Date> res = readData(sql, dataMap);
         if (res == null || res.size() != 1)
@@ -69,11 +69,11 @@ public class TBLeprosyDao extends AbstractDao {
         return res.get(0);
     }
 
-    public static String getClientSkeletonID(String baseEntityId) {
-        String sql = "SELECT skeleton_client_id FROM ec_skeleton_enrollment p " +
+    public static String getClienttbleprosyID(String baseEntityId) {
+        String sql = "SELECT tbleprosy_client_id FROM ec_tbleprosy_enrollment p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
 
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "skeleton_client_id");
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "tbleprosy_client_id");
 
         List<String> res = readData(sql, dataMap);
         if (res != null && res.size() != 0 && res.get(0) != null) {
@@ -83,7 +83,7 @@ public class TBLeprosyDao extends AbstractDao {
     }
 
     public static String getEnrollmentDate(String baseEntityId) {
-        String sql = "SELECT enrollment_date FROM ec_skeleton_enrollment p " +
+        String sql = "SELECT enrollment_date FROM ec_tbleprosy_enrollment p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "enrollment_date");
@@ -96,7 +96,7 @@ public class TBLeprosyDao extends AbstractDao {
     }
 
     public static int getVisitNumber(String baseEntityID) {
-        String sql = "SELECT visit_number  FROM ec_skeleton_follow_up_visit WHERE entity_id='" + baseEntityID + "' ORDER BY visit_number DESC LIMIT 1";
+        String sql = "SELECT visit_number  FROM ec_tbleprosy_follow_up_visit WHERE entity_id='" + baseEntityID + "' ORDER BY visit_number DESC LIMIT 1";
         DataMap<Integer> map = cursor -> getCursorIntValue(cursor, "visit_number");
         List<Integer> res = readData(sql, map);
 
@@ -106,8 +106,8 @@ public class TBLeprosyDao extends AbstractDao {
             return 0;
     }
 
-    public static boolean isRegisteredForSkeleton(String baseEntityID) {
-        String sql = "SELECT count(p.base_entity_id) count FROM ec_skeleton_enrollment p " +
+    public static boolean isRegisteredFortbleprosy(String baseEntityID) {
+        String sql = "SELECT count(p.base_entity_id) count FROM ec_tbleprosy_enrollment p " +
                 "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0 ";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
@@ -119,11 +119,11 @@ public class TBLeprosyDao extends AbstractDao {
         return res.get(0) > 0;
     }
 
-    public static Integer getSkeletonFamilyMembersCount(String familyBaseEntityId) {
-        String sql = "SELECT count(emc.base_entity_id) count FROM ec_skeleton_enrollment emc " +
+    public static Integer gettbleprosyFamilyMembersCount(String familyBaseEntityId) {
+        String sql = "SELECT count(emc.base_entity_id) count FROM ec_tbleprosy_enrollment emc " +
                 "INNER Join ec_family_member fm on fm.base_entity_id = emc.base_entity_id " +
                 "WHERE fm.relational_id = '" + familyBaseEntityId + "' AND fm.is_closed = 0 " +
-                "AND emc.is_closed = 0 AND emc.skeleton = 1";
+                "AND emc.is_closed = 0 AND emc.tbleprosy = 1";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
 
@@ -161,7 +161,7 @@ public class TBLeprosyDao extends AbstractDao {
                 "mr.* " +
                 "from ec_family_member m " +
                 "inner join ec_family f on m.relational_id = f.base_entity_id " +
-                "inner join ec_skeleton_enrollment mr on mr.base_entity_id = m.base_entity_id " +
+                "inner join ec_tbleprosy_enrollment mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
                 "where mr.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
@@ -200,7 +200,7 @@ public class TBLeprosyDao extends AbstractDao {
                 "mr.* " +
                 "from ec_family_member m " +
                 "inner join ec_family f on m.relational_id = f.base_entity_id " +
-                "inner join ec_skeleton_enrollment mr on mr.base_entity_id = m.base_entity_id " +
+                "inner join ec_tbleprosy_enrollment mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
                 "where mr.is_closed = 0 ";

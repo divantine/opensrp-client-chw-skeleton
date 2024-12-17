@@ -1,15 +1,15 @@
-package org.smartregister.chw.skeleton_sample.application;
+package org.smartregister.chw.tbleprosy_sample.application;
 
 import com.evernote.android.job.JobManager;
 
 import org.smartregister.Context;
 import org.smartregister.CoreLibrary;
 import org.smartregister.chw.tbleprosy.TBLeprosyLibrary;
-import org.smartregister.chw.skeleton_sample.repository.SampleRepository;
-import org.smartregister.chw.skeleton_sample.BuildConfig;
+import org.smartregister.chw.tbleprosy_sample.repository.SampleRepository;
+import org.smartregister.chw.tbleprosy_sample.BuildConfig;
 import org.smartregister.chw.tbleprosy.util.DBConstants;
-import org.smartregister.chw.skeleton_sample.job.SampleJobCreator;
-import org.smartregister.chw.skeleton_sample.utils.SampleConstants;
+import org.smartregister.chw.tbleprosy_sample.job.SampleJobCreator;
+import org.smartregister.chw.tbleprosy_sample.utils.SampleConstants;
 import org.smartregister.commonregistry.CommonFtsObject;
 import org.smartregister.configurableviews.ConfigurableViewsLibrary;
 import org.smartregister.receiver.SyncStatusBroadcastReceiver;

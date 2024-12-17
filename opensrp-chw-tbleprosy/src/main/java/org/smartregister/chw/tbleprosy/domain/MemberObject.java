@@ -22,16 +22,16 @@ public class MemberObject implements Serializable {
     private String dob;
     private String relationalid;
     private String details;
-    private String dateChwSkeletonTest;
-    private String feverSkeletonChw;
+    private String dateChwtbleprosyTest;
+    private String fevertbleprosyChw;
     private String feverDuration;
-    private String dateHfSkeletonTest;
-    private Date skeletonTestDate;
-    private String skeletonTreat;
+    private String dateHftbleprosyTest;
+    private Date tbleprosyTestDate;
+    private String tbleprosyTreat;
     private String famLlin;
     private String llin2Days;
     private String llinCondition;
-    private String skeletonEduChw;
+    private String tbleprosyEduChw;
     private String baseEntityId;
     private String relationalId;
     private String primaryCareGiver;
@@ -41,7 +41,7 @@ public class MemberObject implements Serializable {
     private String familyBaseEntityId;
     private String familyName;
     private String phoneNumber;
-    private String skeletonFollowUpDate;
+    private String tbleprosyFollowUpDate;
     private String enrollmentDate;
 
     public MemberObject() {
@@ -138,20 +138,20 @@ public class MemberObject implements Serializable {
         this.details = details;
     }
 
-    public String getDateChwSkeletonTest() {
-        return dateChwSkeletonTest;
+    public String getDateChwtbleprosyTest() {
+        return dateChwtbleprosyTest;
     }
 
-    public void setDateChwSkeletonTest(String dateChwSkeletonTest) {
-        this.dateChwSkeletonTest = dateChwSkeletonTest;
+    public void setDateChwtbleprosyTest(String dateChwtbleprosyTest) {
+        this.dateChwtbleprosyTest = dateChwtbleprosyTest;
     }
 
-    public String getFeverSkeletonChw() {
-        return feverSkeletonChw;
+    public String getFevertbleprosyChw() {
+        return fevertbleprosyChw;
     }
 
-    public void setFeverSkeletonChw(String feverSkeletonChw) {
-        this.feverSkeletonChw = feverSkeletonChw;
+    public void setFevertbleprosyChw(String fevertbleprosyChw) {
+        this.fevertbleprosyChw = fevertbleprosyChw;
     }
 
     public String getFeverDuration() {
@@ -162,28 +162,28 @@ public class MemberObject implements Serializable {
         this.feverDuration = feverDuration;
     }
 
-    public String getDateHfSkeletonTest() {
-        return dateHfSkeletonTest;
+    public String getDateHftbleprosyTest() {
+        return dateHftbleprosyTest;
     }
 
-    public void setDateHfSkeletonTest(String dateHfSkeletonTest) {
-        this.dateHfSkeletonTest = dateHfSkeletonTest;
+    public void setDateHftbleprosyTest(String dateHftbleprosyTest) {
+        this.dateHftbleprosyTest = dateHftbleprosyTest;
     }
 
-    public Date getSkeletonTestDate() {
-        return skeletonTestDate;
+    public Date gettbleprosyTestDate() {
+        return tbleprosyTestDate;
     }
 
-    public void setSkeletonTestDate(Date skeletonTestDate) {
-        this.skeletonTestDate = skeletonTestDate;
+    public void settbleprosyTestDate(Date tbleprosyTestDate) {
+        this.tbleprosyTestDate = tbleprosyTestDate;
     }
 
-    public String getSkeletonTreat() {
-        return skeletonTreat;
+    public String gettbleprosyTreat() {
+        return tbleprosyTreat;
     }
 
-    public void setSkeletonTreat(String skeletonTreat) {
-        this.skeletonTreat = skeletonTreat;
+    public void settbleprosyTreat(String tbleprosyTreat) {
+        this.tbleprosyTreat = tbleprosyTreat;
     }
 
     public String getFamLlin() {
@@ -210,12 +210,12 @@ public class MemberObject implements Serializable {
         this.llinCondition = llinCondition;
     }
 
-    public String getSkeletonEduChw() {
-        return skeletonEduChw;
+    public String gettbleprosyEduChw() {
+        return tbleprosyEduChw;
     }
 
-    public void setSkeletonEduChw(String skeletonEduChw) {
-        this.skeletonEduChw = skeletonEduChw;
+    public void settbleprosyEduChw(String tbleprosyEduChw) {
+        this.tbleprosyEduChw = tbleprosyEduChw;
     }
 
     public String getBaseEntityId() {
@@ -307,12 +307,12 @@ public class MemberObject implements Serializable {
         this.primaryCareGiverPhone = primaryCareGiverPhone;
     }
 
-    public String getSkeletonFollowUpDate() {
-        return skeletonFollowUpDate;
+    public String gettbleprosyFollowUpDate() {
+        return tbleprosyFollowUpDate;
     }
 
-    public void setSkeletonFollowUpDate(String skeletonFollowUpDate) {
-        this.skeletonFollowUpDate = skeletonFollowUpDate;
+    public void settbleprosyFollowUpDate(String tbleprosyFollowUpDate) {
+        this.tbleprosyFollowUpDate = tbleprosyFollowUpDate;
     }
 
     public String getEnrollmentDate() {

@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.presenter;
+package org.smartregister.chw.tbleprosy_sample.presenter;
 
 import org.junit.Test;
 import org.mockito.Mock;
@@ -19,14 +19,14 @@ public class BaseTBLeprosyProfilePresenterTest {
     private TBLeprosyProfileContract.Interactor interactor = Mockito.mock(TBLeprosyProfileContract.Interactor.class);
 
     @Mock
-    private MemberObject skeletonMemberObject = new MemberObject();
+    private MemberObject tbleprosyMemberObject = new MemberObject();
 
-    private BaseTBLeprosyProfilePresenter profilePresenter = new BaseTBLeprosyProfilePresenter(view, interactor, skeletonMemberObject);
+    private BaseTBLeprosyProfilePresenter profilePresenter = new BaseTBLeprosyProfilePresenter(view, interactor, tbleprosyMemberObject);
 
 
     @Test
     public void fillProfileDataCallsSetProfileViewWithDataWhenPassedMemberObject() {
-        profilePresenter.fillProfileData(skeletonMemberObject);
+        profilePresenter.fillProfileData(tbleprosyMemberObject);
         verify(view).setProfileViewWithData();
     }
 
@@ -38,20 +38,20 @@ public class BaseTBLeprosyProfilePresenterTest {
 
     @Test
     public void malariaTestDatePeriodIsLessThanSeven() {
-        profilePresenter.recordSkeletonButton("");
+        profilePresenter.recordtbleprosyButton("");
         verify(view).hideView();
     }
 
     @Test
     public void malariaTestDatePeriodIsMoreThanFourteen() {
-        profilePresenter.recordSkeletonButton("EXPIRED");
+        profilePresenter.recordtbleprosyButton("EXPIRED");
         verify(view).hideView();
     }
 
     @Test
     public void refreshProfileBottom() {
         profilePresenter.refreshProfileBottom();
-        verify(interactor).refreshProfileInfo(skeletonMemberObject, profilePresenter.getView());
+        verify(interactor).refreshProfileInfo(tbleprosyMemberObject, profilePresenter.getView());
     }
 
     @Test

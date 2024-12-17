@@ -21,15 +21,15 @@ public class BaseTBLeprosyFloatingMenu extends LinearLayout implements View.OnCl
     }
 
     protected void initUi() {
-        inflate(getContext(), R.layout.view_skeleton_floating_menu, this);
-        FloatingActionButton fab = findViewById(R.id.skeleton_fab);
+        inflate(getContext(), R.layout.view_tbleprosy_floating_menu, this);
+        FloatingActionButton fab = findViewById(R.id.tbleprosy_fab);
         if (fab != null)
             fab.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.skeleton_fab) {
+        if (view.getId() == R.id.tbleprosy_fab) {
             Activity activity = (Activity) getContext();
             BaseTBLeprosyCallDialogFragment.launchDialog(activity, MEMBER_OBJECT);
         }  else if (view.getId() == R.id.refer_to_facility_layout) {

@@ -27,7 +27,7 @@ public class BaseTBLeprosyProfileInteractor implements TBLeprosyProfileContract.
         Runnable runnable = () -> appExecutors.mainThread().execute(() -> {
             callback.refreshFamilyStatus(AlertStatus.normal);
             callback.refreshMedicalHistory(true);
-            callback.refreshUpComingServicesStatus("Skeleton Visit", AlertStatus.normal, new Date());
+            callback.refreshUpComingServicesStatus("tbleprosy Visit", AlertStatus.normal, new Date());
         });
         appExecutors.diskIO().execute(runnable);
     }

@@ -1,0 +1,28 @@
+---
+name: step1_female_people
+description: leprosy relevance
+priority: 1
+condition: "step1_no_of_people_reached == 'female_no_of_people'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_male_people
+description: leprosy relevance
+priority: 1
+condition: "step1_no_of_people_reached == 'male_no_of_people'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_specify
+description: leprosy relevance
+priority: 1
+condition: "step1_mobilization_area == 'other_specify_mobilization'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_specify_pop
+description: leprosy relevance
+priority: 1
+condition: "step1_population_type == 'other_specify_population'"
+actions:
+  - "isRelevant = true"

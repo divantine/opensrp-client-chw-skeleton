@@ -18,11 +18,11 @@ public interface BaseTBLeprosyVisitContract {
 
         Form getFormConfig();
 
-        void startForm(BaseTBLeprosyVisitAction skeletonHomeVisitAction);
+        void startForm(BaseTBLeprosyVisitAction tbleprosyHomeVisitAction);
 
         void startFormActivity(JSONObject jsonForm);
 
-        void startFragment(BaseTBLeprosyVisitAction skeletonHomeVisitAction);
+        void startFragment(BaseTBLeprosyVisitAction tbleprosyHomeVisitAction);
 
         void redrawHeader(MemberObject memberObject);
 
@@ -30,7 +30,7 @@ public interface BaseTBLeprosyVisitContract {
 
         void displayProgressBar(boolean state);
 
-        Map<String, BaseTBLeprosyVisitAction> getSkeletonVisitActions();
+        Map<String, BaseTBLeprosyVisitAction> gettbleprosyVisitActions();
 
         void close();
 

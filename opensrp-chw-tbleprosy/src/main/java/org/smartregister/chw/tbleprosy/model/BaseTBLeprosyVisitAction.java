@@ -34,7 +34,7 @@ public class BaseTBLeprosyVisitAction {
     private String formName;
     private String jsonPayload;
     private String selectedOption;
-    private SkeletonVisitActionHelper skeletonVisitActionHelper;
+    private tbleprosyVisitActionHelper tbleprosyVisitActionHelper;
     private Map<String, List<VisitDetail>> details;
     private Context context;
     private Validator validator;
@@ -51,7 +51,7 @@ public class BaseTBLeprosyVisitAction {
         this.optional = builder.optional;
         this.destinationFragment = builder.destinationFragment;
         this.formName = builder.formName;
-        this.skeletonVisitActionHelper = builder.skeletonVisitActionHelper;
+        this.tbleprosyVisitActionHelper = builder.tbleprosyVisitActionHelper;
         this.details = builder.details;
         this.context = builder.context;
         this.processingMode = builder.processingMode;
@@ -80,9 +80,9 @@ public class BaseTBLeprosyVisitAction {
                 jsonPayload = jsonObject.toString();
             }
 
-            if (skeletonVisitActionHelper != null) {
-                skeletonVisitActionHelper.onJsonFormLoaded(jsonPayload, context, details);
-                String pre_processed = skeletonVisitActionHelper.getPreProcessed();
+            if (tbleprosyVisitActionHelper != null) {
+                tbleprosyVisitActionHelper.onJsonFormLoaded(jsonPayload, context, details);
+                String pre_processed = tbleprosyVisitActionHelper.getPreProcessed();
                 if (StringUtils.isNotBlank(pre_processed)) {
                     JSONObject jsonObject = new JSONObject(pre_processed);
                     TBLeprosyJsonFormUtils.populateForm(jsonObject, details);
@@ -90,12 +90,12 @@ public class BaseTBLeprosyVisitAction {
                     this.jsonPayload = jsonObject.toString();
                 }
 
-                String sub_title = skeletonVisitActionHelper.getPreProcessedSubTitle();
+                String sub_title = tbleprosyVisitActionHelper.getPreProcessedSubTitle();
                 if (StringUtils.isNotBlank(sub_title)) {
                     this.subTitle = sub_title;
                 }
 
-                ScheduleStatus status = skeletonVisitActionHelper.getPreProcessedStatus();
+                ScheduleStatus status = tbleprosyVisitActionHelper.getPreProcessedStatus();
                 if (status != null) {
                     this.scheduleStatus = status;
                 }
@@ -236,22 +236,22 @@ public class BaseTBLeprosyVisitAction {
     }
 
     private void onPayloadReceivedNotifyHelper(String jsonPayload) {
-        if (skeletonVisitActionHelper == null)
+        if (tbleprosyVisitActionHelper == null)
             return;
 
-        skeletonVisitActionHelper.onPayloadReceived(jsonPayload);
+        tbleprosyVisitActionHelper.onPayloadReceived(jsonPayload);
 
-        String sub_title = skeletonVisitActionHelper.evaluateSubTitle();
+        String sub_title = tbleprosyVisitActionHelper.evaluateSubTitle();
         if (sub_title != null) {
             setSubTitle(sub_title);
         }
 
-        String post_process = skeletonVisitActionHelper.postProcess(jsonPayload);
+        String post_process = tbleprosyVisitActionHelper.postProcess(jsonPayload);
         if (post_process != null) {
-            this.jsonPayload = skeletonVisitActionHelper.postProcess(jsonPayload);
+            this.jsonPayload = tbleprosyVisitActionHelper.postProcess(jsonPayload);
         }
 
-        skeletonVisitActionHelper.onPayloadReceived(this);
+        tbleprosyVisitActionHelper.onPayloadReceived(this);
     }
 
     public void setProcessedJsonPayload(String jsonPayload) {
@@ -282,12 +282,12 @@ public class BaseTBLeprosyVisitAction {
         this.selectedOption = selectedOption;
     }
 
-    public SkeletonVisitActionHelper getSkeletonVisitActionHelper() {
-        return skeletonVisitActionHelper;
+    public tbleprosyVisitActionHelper gettbleprosyVisitActionHelper() {
+        return tbleprosyVisitActionHelper;
     }
 
-    public void setSkeletonVisitActionHelper(SkeletonVisitActionHelper skeletonVisitActionHelper) {
-        this.skeletonVisitActionHelper = skeletonVisitActionHelper;
+    public void settbleprosyVisitActionHelper(tbleprosyVisitActionHelper tbleprosyVisitActionHelper) {
+        this.tbleprosyVisitActionHelper = tbleprosyVisitActionHelper;
     }
 
     /**
@@ -297,8 +297,8 @@ public class BaseTBLeprosyVisitAction {
     public void evaluateStatus() {
         setActionStatus(computedStatus());
 
-        if (getSkeletonVisitActionHelper() != null) {
-            setActionStatus(getSkeletonVisitActionHelper().evaluateStatusOnPayload());
+        if (gettbleprosyVisitActionHelper() != null) {
+            setActionStatus(gettbleprosyVisitActionHelper().evaluateStatusOnPayload());
         }
     }
 
@@ -321,7 +321,7 @@ public class BaseTBLeprosyVisitAction {
      */
     public enum ProcessingMode {COMBINED, SEPARATE}
 
-    public interface SkeletonVisitActionHelper {
+    public interface tbleprosyVisitActionHelper {
 
         /**
          * Inject values to the json form before rendering
@@ -376,7 +376,7 @@ public class BaseTBLeprosyVisitAction {
         /**
          * Custom processing after payload is received
          */
-        void onPayloadReceived(BaseTBLeprosyVisitAction skeletonVisitAction);
+        void onPayloadReceived(BaseTBLeprosyVisitAction tbleprosyVisitAction);
     }
 
     /**
@@ -412,7 +412,7 @@ public class BaseTBLeprosyVisitAction {
         private boolean optional = true;
         private BaseTBLeprosyVisitFragment destinationFragment;
         private String formName;
-        private SkeletonVisitActionHelper skeletonVisitActionHelper;
+        private tbleprosyVisitActionHelper tbleprosyVisitActionHelper;
         private Map<String, List<VisitDetail>> details = new HashMap<>();
         private Context context;
         private String jsonPayload;
@@ -468,8 +468,8 @@ public class BaseTBLeprosyVisitAction {
             return this;
         }
 
-        public Builder withHelper(SkeletonVisitActionHelper skeletonVisitActionHelper) {
-            this.skeletonVisitActionHelper = skeletonVisitActionHelper;
+        public Builder withHelper(tbleprosyVisitActionHelper tbleprosyVisitActionHelper) {
+            this.tbleprosyVisitActionHelper = tbleprosyVisitActionHelper;
             return this;
         }
 

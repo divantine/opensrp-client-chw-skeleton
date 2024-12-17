@@ -18,7 +18,7 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class TBLeprosyMedicalHistoryActionHelper implements BaseTBLeprosyVisitAction.SkeletonVisitActionHelper {
+public class TBLeprosyMedicalHistoryActionHelper implements BaseTBLeprosyVisitAction.tbleprosyVisitActionHelper {
 
     protected static String is_client_diagnosed_with_any;
 

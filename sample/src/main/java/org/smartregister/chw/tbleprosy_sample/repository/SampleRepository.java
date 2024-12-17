@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.repository;
+package org.smartregister.chw.tbleprosy_sample.repository;
 
 import android.content.Context;
 
@@ -6,8 +6,8 @@ import net.sqlcipher.database.SQLiteDatabase;
 
 import org.smartregister.AllConstants;
 import org.smartregister.chw.tbleprosy.TBLeprosyLibrary;
-import org.smartregister.chw.skeleton_sample.BuildConfig;
-import org.smartregister.chw.skeleton_sample.application.SampleApplication;
+import org.smartregister.chw.tbleprosy_sample.BuildConfig;
+import org.smartregister.chw.tbleprosy_sample.application.SampleApplication;
 import org.smartregister.configurableviews.repository.ConfigurableViewsRepository;
 import org.smartregister.repository.EventClientRepository;
 import org.smartregister.repository.Repository;

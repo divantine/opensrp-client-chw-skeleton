@@ -29,7 +29,7 @@ public class BaseTBLeprosyServiceVisitInteractor extends BaseTBLeprosyVisitInter
     protected BaseTBLeprosyVisitContract.InteractorCallBack callBack;
 
     String visitType;
-    private final TBLeprosyLibrary TBLeprosyLibrary;
+    private final TBLeprosyLibrary tbleprosyLibrary;
     private final LinkedHashMap<String, BaseTBLeprosyVisitAction> actionList;
     protected AppExecutors appExecutors;
     private ECSyncHelper syncHelper;
@@ -39,7 +39,7 @@ public class BaseTBLeprosyServiceVisitInteractor extends BaseTBLeprosyVisitInter
     @VisibleForTesting
     public BaseTBLeprosyServiceVisitInteractor(AppExecutors appExecutors, TBLeprosyLibrary TBLeprosyLibrary, ECSyncHelper syncHelper) {
         this.appExecutors = appExecutors;
-        this.TBLeprosyLibrary = TBLeprosyLibrary;
+        this.tbleprosyLibrary = TBLeprosyLibrary;
         this.syncHelper = syncHelper;
         this.actionList = new LinkedHashMap<>();
     }
@@ -62,9 +62,9 @@ public class BaseTBLeprosyServiceVisitInteractor extends BaseTBLeprosyVisitInter
         this.callBack = callBack;
         final Runnable runnable = () -> {
             try {
-                evaluateSkeletonMedicalHistory(details);
-                evaluateSkeletonPhysicalExam(details);
-                evaluateSkeletonHTS(details);
+                evaluatetbleprosyMedicalHistory(details);
+                evaluatetbleprosyPhysicalExam(details);
+                evaluatetbleprosyHTS(details);
 
             } catch (BaseTBLeprosyVisitAction.ValidationException e) {
                 Timber.e(e);
@@ -76,51 +76,51 @@ public class BaseTBLeprosyServiceVisitInteractor extends BaseTBLeprosyVisitInter
         appExecutors.diskIO().execute(runnable);
     }
 
-    private void evaluateSkeletonMedicalHistory(Map<String, List<VisitDetail>> details) throws BaseTBLeprosyVisitAction.ValidationException {
+    private void evaluatetbleprosyMedicalHistory(Map<String, List<VisitDetail>> details) throws BaseTBLeprosyVisitAction.ValidationException {
 
         TBLeprosyMedicalHistoryActionHelper actionHelper = new TBLeprosyMedicalHistory(mContext, memberObject);
-        BaseTBLeprosyVisitAction action = getBuilder(context.getString(R.string.skeleton_medical_history))
+        BaseTBLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_medical_history))
                 .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withFormName(Constants.SKELETON_FOLLOWUP_FORMS.MEDICAL_HISTORY)
+                .withFormName(Constants.tbleprosy_FOLLOWUP_FORMS.MEDICAL_HISTORY)
                 .build();
-        actionList.put(context.getString(R.string.skeleton_medical_history), action);
+        actionList.put(context.getString(R.string.tbleprosy_medical_history), action);
 
     }
 
-    private void evaluateSkeletonPhysicalExam(Map<String, List<VisitDetail>> details) throws BaseTBLeprosyVisitAction.ValidationException {
+    private void evaluatetbleprosyPhysicalExam(Map<String, List<VisitDetail>> details) throws BaseTBLeprosyVisitAction.ValidationException {
 
         TBLeprosyPhysicalExamActionHelper actionHelper = new TBLeprosyPhysicalExamActionHelper(mContext, memberObject);
-        BaseTBLeprosyVisitAction action = getBuilder(context.getString(R.string.skeleton_physical_examination))
+        BaseTBLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_physical_examination))
                 .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withFormName(Constants.SKELETON_FOLLOWUP_FORMS.PHYSICAL_EXAMINATION)
+                .withFormName(Constants.tbleprosy_FOLLOWUP_FORMS.PHYSICAL_EXAMINATION)
                 .build();
-        actionList.put(context.getString(R.string.skeleton_physical_examination), action);
+        actionList.put(context.getString(R.string.tbleprosy_physical_examination), action);
     }
 
-    private void evaluateSkeletonHTS(Map<String, List<VisitDetail>> details) throws BaseTBLeprosyVisitAction.ValidationException {
+    private void evaluatetbleprosyHTS(Map<String, List<VisitDetail>> details) throws BaseTBLeprosyVisitAction.ValidationException {
 
         TBLeprosyActionHelper actionHelper = new TBLeprosyActionHelper(mContext, memberObject);
-        BaseTBLeprosyVisitAction action = getBuilder(context.getString(R.string.skeleton_hts))
+        BaseTBLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_hts))
                 .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withFormName(Constants.SKELETON_FOLLOWUP_FORMS.HTS)
+                .withFormName(Constants.tbleprosy_FOLLOWUP_FORMS.HTS)
                 .build();
-        actionList.put(context.getString(R.string.skeleton_hts), action);
+        actionList.put(context.getString(R.string.tbleprosy_hts), action);
     }
 
     @Override
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.SKELETON_SERVICES;
+        return Constants.EVENT_TYPE.tbleprosy_SERVICES;
     }
 
     @Override
     protected String getTableName() {
-        return Constants.TABLES.SKELETON_SERVICE;
+        return Constants.TABLES.tbleprosy_SERVICE;
     }
 
     private class TBLeprosyMedicalHistory extends TBLeprosyMedicalHistoryActionHelper {
@@ -134,8 +134,8 @@ public class BaseTBLeprosyServiceVisitInteractor extends BaseTBLeprosyVisitInter
         public String postProcess(String s) {
             if (StringUtils.isNotBlank(medical_history)) {
                 try {
-                    evaluateSkeletonPhysicalExam(details);
-                    evaluateSkeletonHTS(details);
+                    evaluatetbleprosyPhysicalExam(details);
+                    evaluatetbleprosyHTS(details);
                 } catch (BaseTBLeprosyVisitAction.ValidationException e) {
                     e.printStackTrace();
                 }
@@ -156,7 +156,7 @@ public class BaseTBLeprosyServiceVisitInteractor extends BaseTBLeprosyVisitInter
         public String postProcess(String s) {
             if (StringUtils.isNotBlank(medical_history)) {
                 try {
-                    evaluateSkeletonHTS(details);
+                    evaluatetbleprosyHTS(details);
                 } catch (BaseTBLeprosyVisitAction.ValidationException e) {
                     e.printStackTrace();
                 }

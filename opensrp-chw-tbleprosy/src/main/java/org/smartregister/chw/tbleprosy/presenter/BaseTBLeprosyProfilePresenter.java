@@ -32,7 +32,7 @@ public class BaseTBLeprosyProfilePresenter implements TBLeprosyProfileContract.P
     }
 
     @Override
-    public void recordSkeletonButton(@Nullable String visitState) {
+    public void recordtbleprosyButton(@Nullable String visitState) {
         if (getView() == null) {
             return;
         }

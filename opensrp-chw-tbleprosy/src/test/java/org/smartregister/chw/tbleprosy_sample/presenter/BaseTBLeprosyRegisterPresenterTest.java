@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.presenter;
+package org.smartregister.chw.tbleprosy_sample.presenter;
 
 import org.json.JSONObject;
 import org.junit.Assert;

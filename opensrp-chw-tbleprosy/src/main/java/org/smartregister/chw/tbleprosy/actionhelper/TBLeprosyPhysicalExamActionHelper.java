@@ -20,7 +20,7 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class TBLeprosyPhysicalExamActionHelper implements BaseTBLeprosyVisitAction.SkeletonVisitActionHelper {
+public class TBLeprosyPhysicalExamActionHelper implements BaseTBLeprosyVisitAction.tbleprosyVisitActionHelper {
 
     protected String jsonPayload;
 

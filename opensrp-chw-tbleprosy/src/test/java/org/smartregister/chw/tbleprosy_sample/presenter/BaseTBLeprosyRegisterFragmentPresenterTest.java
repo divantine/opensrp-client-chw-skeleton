@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.presenter;
+package org.smartregister.chw.tbleprosy_sample.presenter;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -38,30 +38,30 @@ public class BaseTBLeprosyRegisterFragmentPresenterTest {
 
     @Test
     public void getMainCondition() {
-        Assert.assertEquals(" ec_skeleton_enrollment.is_closed = 0 ", baseTBLeprosyRegisterFragmentPresenter.getMainCondition());
+        Assert.assertEquals(" ec_tbleprosy_enrollment.is_closed = 0 ", baseTBLeprosyRegisterFragmentPresenter.getMainCondition());
     }
 
     @Test
     public void getDueFilterCondition() {
-        Assert.assertEquals(" (cast( julianday(STRFTIME('%Y-%m-%d', datetime('now'))) -  julianday(IFNULL(SUBSTR(skeleton_test_date,7,4)|| '-' || SUBSTR(skeleton_test_date,4,2) || '-' || SUBSTR(skeleton_test_date,1,2),'')) as integer) between 7 and 14) ", baseTBLeprosyRegisterFragmentPresenter.getDueFilterCondition());
+        Assert.assertEquals(" (cast( julianday(STRFTIME('%Y-%m-%d', datetime('now'))) -  julianday(IFNULL(SUBSTR(tbleprosy_test_date,7,4)|| '-' || SUBSTR(tbleprosy_test_date,4,2) || '-' || SUBSTR(tbleprosy_test_date,1,2),'')) as integer) between 7 and 14) ", baseTBLeprosyRegisterFragmentPresenter.getDueFilterCondition());
     }
 
     @Test
     public void getDefaultSortQuery() {
-        Assert.assertEquals(Constants.TABLES.SKELETON_ENROLLMENT + "." + DBConstants.KEY.LAST_INTERACTED_WITH + " DESC ", baseTBLeprosyRegisterFragmentPresenter.getDefaultSortQuery());
+        Assert.assertEquals(Constants.TABLES.tbleprosy_ENROLLMENT + "." + DBConstants.KEY.LAST_INTERACTED_WITH + " DESC ", baseTBLeprosyRegisterFragmentPresenter.getDefaultSortQuery());
     }
 
     @Test
     public void getMainTable() {
-        Assert.assertEquals(Constants.TABLES.SKELETON_ENROLLMENT, baseTBLeprosyRegisterFragmentPresenter.getMainTable());
+        Assert.assertEquals(Constants.TABLES.tbleprosy_ENROLLMENT, baseTBLeprosyRegisterFragmentPresenter.getMainTable());
     }
 
     @Test
     public void initializeQueries() {
         Set<View> visibleColumns = new TreeSet<>();
         baseTBLeprosyRegisterFragmentPresenter.initializeQueries(null);
-        Mockito.doNothing().when(view).initializeQueryParams(Constants.TABLES.SKELETON_ENROLLMENT, null, null);
-        Mockito.verify(view).initializeQueryParams(Constants.TABLES.SKELETON_ENROLLMENT, null, null);
+        Mockito.doNothing().when(view).initializeQueryParams(Constants.TABLES.tbleprosy_ENROLLMENT, null, null);
+        Mockito.verify(view).initializeQueryParams(Constants.TABLES.tbleprosy_ENROLLMENT, null, null);
         Mockito.verify(view).initializeAdapter(visibleColumns);
         Mockito.verify(view).countExecute();
         Mockito.verify(view).filterandSortInInitializeQueries();

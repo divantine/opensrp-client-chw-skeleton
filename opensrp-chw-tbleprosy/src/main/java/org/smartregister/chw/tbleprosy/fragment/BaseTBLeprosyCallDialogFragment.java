@@ -23,7 +23,7 @@ import org.smartregister.chw.tbleprosy.listener.BaseTBLeprosyCallWidgetDialogLis
 
 public class BaseTBLeprosyCallDialogFragment extends DialogFragment implements BaseTBLeprosyCallDialogContract.View {
 
-    public static final String DIALOG_TAG = "BaseSkeletonCallDialogFragment_DIALOG_TAG";
+    public static final String DIALOG_TAG = "BasetbleprosyCallDialogFragment_DIALOG_TAG";
     private static MemberObject MEMBER_OBJECT;
     private View.OnClickListener listener = null;
 
@@ -55,7 +55,7 @@ public class BaseTBLeprosyCallDialogFragment extends DialogFragment implements B
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.skeleton_member_call_widget_dialog_fragment, container, false);
+        ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.tbleprosy_member_call_widget_dialog_fragment, container, false);
         setUpPosition();
         if (listener == null) {
             listener = new BaseTBLeprosyCallWidgetDialogListener(this);
@@ -68,9 +68,9 @@ public class BaseTBLeprosyCallDialogFragment extends DialogFragment implements B
     private void setCallTitle(ViewGroup rootView, int viewId, final String message) {
         TextView callTitle = rootView.findViewById(viewId);
         if (MEMBER_OBJECT.getBaseEntityId().equals(MEMBER_OBJECT.getPrimaryCareGiver())) {
-            callTitle.setText(String.format("%s %s", message, getResources().getString(R.string.call_skeleton_client)));
+            callTitle.setText(String.format("%s %s", message, getResources().getString(R.string.call_tbleprosy_client)));
         } else {
-            callTitle.setText(String.format("%s %s", message, getResources().getString(R.string.call_skeleton_client)));
+            callTitle.setText(String.format("%s %s", message, getResources().getString(R.string.call_tbleprosy_client)));
         }
     }
 
@@ -78,9 +78,9 @@ public class BaseTBLeprosyCallDialogFragment extends DialogFragment implements B
         if (StringUtils.isNotBlank(MEMBER_OBJECT.getPhoneNumber())) {
             setCallTitle(rootView, R.id.call_title, getResources().getString(R.string.call));
             if (StringUtils.isNotBlank(MEMBER_OBJECT.getFamilyHead())) {
-                TextView familyHeadName = rootView.findViewById(R.id.skeleton_call_head_name);
+                TextView familyHeadName = rootView.findViewById(R.id.tbleprosy_call_head_name);
                 familyHeadName.setText(MEMBER_OBJECT.getFamilyHeadName());
-                TextView clientCallHeadPhone = rootView.findViewById(R.id.skeleton_call_head_phone);
+                TextView clientCallHeadPhone = rootView.findViewById(R.id.tbleprosy_call_head_phone);
                 clientCallHeadPhone.setText(
                         getName(getCurrentContext().getString(R.string.call), MEMBER_OBJECT.getFamilyHeadPhoneNumber()));
                 clientCallHeadPhone.setOnClickListener(listener);
@@ -88,7 +88,7 @@ public class BaseTBLeprosyCallDialogFragment extends DialogFragment implements B
             }
         }
 
-        rootView.findViewById(R.id.skeleton_call_close).setOnClickListener(listener);
+        rootView.findViewById(R.id.tbleprosy_call_close).setOnClickListener(listener);
     }
 
     private void setUpPosition() {

@@ -51,7 +51,7 @@ public class BaseTBLeprosyRegisterActivity extends BaseRegisterActivity implemen
         super.onCreate(savedInstanceState);
         BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);
         FAMILY_BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.FAMILY_BASE_ENTITY_ID);
-        FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.SKELETON_FORM_NAME);
+        FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.tbleprosy_FORM_NAME);
         onStartActivityWithAction();
     }
 
@@ -108,7 +108,7 @@ public class BaseTBLeprosyRegisterActivity extends BaseRegisterActivity implemen
 
     @Override
     public List<String> getViewIdentifiers() {
-        return Arrays.asList(Constants.CONFIGURATION.SKELETON_ENROLLMENT);
+        return Arrays.asList(Constants.CONFIGURATION.tbleprosy_ENROLLMENT);
     }
 
     /**
@@ -134,7 +134,7 @@ public class BaseTBLeprosyRegisterActivity extends BaseRegisterActivity implemen
 
     @MenuRes
     public int getMenuResource() {
-        return R.menu.bottom_nav_skeleton;
+        return R.menu.bottom_nav_tbleprosy;
     }
 
     @Override

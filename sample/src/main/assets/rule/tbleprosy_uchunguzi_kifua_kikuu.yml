@@ -1,0 +1,7 @@
+---
+name: step1_specify_others_uchunguzi_kifua_kikuu
+description: leprosy relevance
+priority: 1
+condition: "step1_uchunguzi_wa_tb == 'dalili_za_tb_nje_ya_mapafu_specify'"
+actions:
+  - "isRelevant = true"

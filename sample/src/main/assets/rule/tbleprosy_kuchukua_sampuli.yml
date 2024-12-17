@@ -1,0 +1,7 @@
+---
+name: step1_nyingine_taja
+description: leprosy relevance
+priority: 1
+condition: "step1_aina_ya_sampuli == 'nyingine'"
+actions:
+  - "isRelevant = true"

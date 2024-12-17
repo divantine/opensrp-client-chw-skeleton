@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.fragment;
+package org.smartregister.chw.tbleprosy_sample.fragment;
 
 import org.smartregister.chw.tbleprosy.fragment.BaseTBLeprosyRegisterFragment;
 

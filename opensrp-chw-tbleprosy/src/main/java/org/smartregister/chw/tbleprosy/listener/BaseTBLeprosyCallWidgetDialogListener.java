@@ -17,7 +17,7 @@ public class BaseTBLeprosyCallWidgetDialogListener implements View.OnClickListen
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.skeleton_call_close) {
+        if (i == R.id.tbleprosy_call_close) {
             callDialogFragment.dismiss();
         }
     }

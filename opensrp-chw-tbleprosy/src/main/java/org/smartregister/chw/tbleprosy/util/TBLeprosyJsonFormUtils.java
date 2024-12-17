@@ -3,7 +3,7 @@ package org.smartregister.chw.tbleprosy.util;
 import static org.smartregister.chw.tbleprosy.util.Constants.ENCOUNTER_TYPE;
 import static org.smartregister.chw.tbleprosy.util.Constants.STEP_ONE;
 import static org.smartregister.chw.tbleprosy.util.Constants.STEP_TWO;
-import static org.smartregister.chw.tbleprosy.util.Constants.SKELETON_VISIT_GROUP;
+import static org.smartregister.chw.tbleprosy.util.Constants.tbleprosy_VISIT_GROUP;
 
 import android.util.Log;
 
@@ -37,13 +37,13 @@ public class TBLeprosyJsonFormUtils extends org.smartregister.util.JsonFormUtils
     public static Triple<Boolean, JSONObject, JSONArray> validateParameters(String jsonString) {
 
         JSONObject jsonForm = toJSONObject(jsonString);
-        JSONArray fields = skeletonFormFields(jsonForm);
+        JSONArray fields = tbleprosyFormFields(jsonForm);
 
         Triple<Boolean, JSONObject, JSONArray> registrationFormParams = Triple.of(jsonForm != null && fields != null, jsonForm, fields);
         return registrationFormParams;
     }
 
-    public static JSONArray skeletonFormFields(JSONObject jsonForm) {
+    public static JSONArray tbleprosyFormFields(JSONObject jsonForm) {
         try {
             JSONArray fieldsOne = fields(jsonForm, STEP_ONE);
             JSONArray fieldsTwo = fields(jsonForm, STEP_TWO);
@@ -90,10 +90,10 @@ public class TBLeprosyJsonFormUtils extends org.smartregister.util.JsonFormUtils
         String entityId = getString(jsonForm, ENTITY_ID);
         String encounter_type = jsonForm.optString(Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE);
 
-        if (Constants.EVENT_TYPE.SKELETON_ENROLLMENT.equals(encounter_type)) {
-            encounter_type = Constants.TABLES.SKELETON_ENROLLMENT;
-        } else if (Constants.EVENT_TYPE.SKELETON_SERVICES.equals(encounter_type)) {
-            encounter_type = Constants.TABLES.SKELETON_SERVICE;
+        if (Constants.EVENT_TYPE.tbleprosy_ENROLLMENT.equals(encounter_type)) {
+            encounter_type = Constants.TABLES.tbleprosy_ENROLLMENT;
+        } else if (Constants.EVENT_TYPE.tbleprosy_SERVICES.equals(encounter_type)) {
+            encounter_type = Constants.TABLES.tbleprosy_SERVICE;
         }
         return org.smartregister.util.JsonFormUtils.createEvent(fields, getJSONObject(jsonForm, METADATA), formTag(allSharedPreferences), entityId, getString(jsonForm, ENCOUNTER_TYPE), encounter_type);
     }
@@ -168,7 +168,7 @@ public class TBLeprosyJsonFormUtils extends org.smartregister.util.JsonFormUtils
             while (local_fields.length() > x) {
                 try {
                     JSONObject obj = local_fields.getJSONObject(x);
-                    obj.put(SKELETON_VISIT_GROUP, map.getKey());
+                    obj.put(tbleprosy_VISIT_GROUP, map.getKey());
                     fields_obj.add(obj);
                 } catch (JSONException e) {
                     Timber.e(e);

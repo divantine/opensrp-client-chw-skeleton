@@ -55,10 +55,10 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
     protected TextView textViewGender;
     protected TextView textViewLocation;
     protected TextView textViewUniqueID;
-    protected TextView textViewRecordSkeleton;
+    protected TextView textViewRecordtbleprosy;
     protected TextView textViewRecordAnc;
-    protected TextView textViewContinueSkeleton;
-    protected TextView textViewContinueSkeletonService;
+    protected TextView textViewContinuetbleprosy;
+    protected TextView textViewContinuetbleprosyService;
     protected TextView manualProcessVisit;
     protected TextView textview_positive_date;
     protected View view_last_visit_row;
@@ -70,10 +70,10 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
     protected RelativeLayout rlFamilyServicesDue;
     protected RelativeLayout visitStatus;
     protected RelativeLayout visitInProgress;
-    protected RelativeLayout skeletonServiceInProgress;
+    protected RelativeLayout tbleprosyServiceInProgress;
     protected ImageView imageViewCross;
     protected TextView textViewUndo;
-    protected RelativeLayout rlSkeletonPositiveDate;
+    protected RelativeLayout rltbleprosyPositiveDate;
     protected TextView textViewVisitDone;
     protected RelativeLayout visitDone;
     protected LinearLayout recordVisits;
@@ -94,7 +94,7 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
 
     @Override
     protected void onCreation() {
-        setContentView(R.layout.activity_skeleton_profile);
+        setContentView(R.layout.activity_tbleprosy_profile);
         Toolbar toolbar = findViewById(R.id.collapsing_toolbar);
         setSupportActionBar(toolbar);
         String baseEntityId = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);
@@ -129,19 +129,19 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
         rlLastVisit = findViewById(R.id.rlLastVisit);
         rlUpcomingServices = findViewById(R.id.rlUpcomingServices);
         rlFamilyServicesDue = findViewById(R.id.rlFamilyServicesDue);
-        rlSkeletonPositiveDate = findViewById(R.id.rlSkeletonPositiveDate);
+        rltbleprosyPositiveDate = findViewById(R.id.rltbleprosyPositiveDate);
         textViewVisitDone = findViewById(R.id.textview_visit_done);
         visitStatus = findViewById(R.id.record_visit_not_done_bar);
         visitDone = findViewById(R.id.visit_done_bar);
         visitInProgress = findViewById(R.id.record_visit_in_progress);
-        skeletonServiceInProgress = findViewById(R.id.record_skeleton_service_visit_in_progress);
+        tbleprosyServiceInProgress = findViewById(R.id.record_tbleprosy_service_visit_in_progress);
         recordVisits = findViewById(R.id.record_visits);
         progressBar = findViewById(R.id.progress_bar);
         textViewRecordAncNotDone = findViewById(R.id.textview_record_anc_not_done);
         textViewVisitDoneEdit = findViewById(R.id.textview_edit);
-        textViewRecordSkeleton = findViewById(R.id.textview_record_skeleton);
-        textViewContinueSkeleton = findViewById(R.id.textview_continue);
-        textViewContinueSkeletonService = findViewById(R.id.continue_skeleton_service);
+        textViewRecordtbleprosy = findViewById(R.id.textview_record_tbleprosy);
+        textViewContinuetbleprosy = findViewById(R.id.textview_continue);
+        textViewContinuetbleprosyService = findViewById(R.id.continue_tbleprosy_service);
         manualProcessVisit = findViewById(R.id.textview_manual_process);
         textViewRecordAnc = findViewById(R.id.textview_record_anc);
         textViewUndo = findViewById(R.id.textview_undo);
@@ -152,10 +152,10 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
         rlLastVisit.setOnClickListener(this);
         rlUpcomingServices.setOnClickListener(this);
         rlFamilyServicesDue.setOnClickListener(this);
-        rlSkeletonPositiveDate.setOnClickListener(this);
-        textViewRecordSkeleton.setOnClickListener(this);
-        textViewContinueSkeleton.setOnClickListener(this);
-        textViewContinueSkeletonService.setOnClickListener(this);
+        rltbleprosyPositiveDate.setOnClickListener(this);
+        textViewRecordtbleprosy.setOnClickListener(this);
+        textViewContinuetbleprosy.setOnClickListener(this);
+        textViewContinuetbleprosyService.setOnClickListener(this);
         manualProcessVisit.setOnClickListener(this);
         textViewRecordAnc.setOnClickListener(this);
         textViewUndo.setOnClickListener(this);
@@ -190,13 +190,13 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
         try {
 
             if (getServiceVisit() != null) {
-                if (!getServiceVisit().getProcessed() && TBLeprosyVisitsUtil.getSkeletonServiceVisitStatus(getServiceVisit()).equalsIgnoreCase(TBLeprosyVisitsUtil.Complete)) {
+                if (!getServiceVisit().getProcessed() && TBLeprosyVisitsUtil.gettbleprosyServiceVisitStatus(getServiceVisit()).equalsIgnoreCase(TBLeprosyVisitsUtil.Complete)) {
                     manualProcessVisit.setVisibility(View.VISIBLE);
-                    textViewContinueSkeletonService.setText(R.string.edit_visit);
+                    textViewContinuetbleprosyService.setText(R.string.edit_visit);
                     manualProcessVisit.setOnClickListener(view -> {
                         try {
                             TBLeprosyVisitsUtil.manualProcessVisit(getServiceVisit());
-                            displayToast(R.string.skeleton_visit_conducted);
+                            displayToast(R.string.tbleprosy_visit_conducted);
                             setupViews();
                         } catch (Exception e) {
                             Timber.d(e);
@@ -206,17 +206,17 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
                     manualProcessVisit.setVisibility(View.GONE);
                 }
                 if (isVisitOnProgress(getServiceVisit())) {
-                    textViewRecordSkeleton.setVisibility(View.GONE);
-                    skeletonServiceInProgress.setVisibility(View.VISIBLE);
+                    textViewRecordtbleprosy.setVisibility(View.GONE);
+                    tbleprosyServiceInProgress.setVisibility(View.VISIBLE);
                 } else {
-                    textViewRecordSkeleton.setVisibility(View.VISIBLE);
-                    skeletonServiceInProgress.setVisibility(View.GONE);
+                    textViewRecordtbleprosy.setVisibility(View.VISIBLE);
+                    tbleprosyServiceInProgress.setVisibility(View.GONE);
                 }
 
-                processSkeletonService();
+                processtbleprosyService();
 
                 if (isVisitOnProgress(getServiceVisit())) {
-                    findViewById(R.id.family_skeleton_head).setVisibility(View.GONE);
+                    findViewById(R.id.family_tbleprosy_head).setVisibility(View.GONE);
                 }
 
             }
@@ -227,13 +227,13 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
     }
 
     protected Visit getServiceVisit() {
-        return TBLeprosyLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.SKELETON_SERVICES);
+        return TBLeprosyLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.tbleprosy_SERVICES);
     }
 
 
-    protected void processSkeletonService() {
+    protected void processtbleprosyService() {
         rlLastVisit.setVisibility(View.VISIBLE);
-        findViewById(R.id.family_skeleton_head).setVisibility(View.VISIBLE);
+        findViewById(R.id.family_tbleprosy_head).setVisibility(View.VISIBLE);
     }
 
 
@@ -252,9 +252,9 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
             this.openUpcomingService();
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
-        } else if (id == R.id.textview_record_skeleton) {
+        } else if (id == R.id.textview_record_tbleprosy) {
             this.openFollowupVisit();
-        } else if (id == R.id.continue_skeleton_service) {
+        } else if (id == R.id.continue_tbleprosy_service) {
             this.continueService();
         } else if (id == R.id.textview_continue) {
             this.continueDischarge();
@@ -280,7 +280,7 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
 
     @Override
     public void hideView() {
-        textViewRecordSkeleton.setVisibility(View.GONE);
+        textViewRecordtbleprosy.setVisibility(View.GONE);
     }
 
     @Override
@@ -299,16 +299,16 @@ public abstract class BaseTBLeprosyProfileActivity extends BaseProfileActivity i
 
 
         if (StringUtils.isNotBlank(memberObject.getPrimaryCareGiver()) && memberObject.getPrimaryCareGiver().equals(memberObject.getBaseEntityId())) {
-            findViewById(R.id.primary_skeleton_caregiver).setVisibility(View.GONE);
+            findViewById(R.id.primary_tbleprosy_caregiver).setVisibility(View.GONE);
         }
-        if (memberObject.getSkeletonTestDate() != null) {
-            textview_positive_date.setText(getString(R.string.skeleton_positive) + " " + formatTime(memberObject.getSkeletonTestDate()));
+        if (memberObject.gettbleprosyTestDate() != null) {
+            textview_positive_date.setText(getString(R.string.tbleprosy_positive) + " " + formatTime(memberObject.gettbleprosyTestDate()));
         }
     }
 
     @Override
     public void setOverDueColor() {
-        textViewRecordSkeleton.setBackground(getResources().getDrawable(R.drawable.record_btn_selector_overdue));
+        textViewRecordtbleprosy.setBackground(getResources().getDrawable(R.drawable.record_btn_selector_overdue));
 
     }
 

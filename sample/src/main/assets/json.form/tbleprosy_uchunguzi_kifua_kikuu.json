@@ -1,0 +1,133 @@
+{
+  "count": "1",
+  "encounter_type": "Uchunguzi wa Kifua Kikuu",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Uchunguzi wa Kifua Kikuu",
+    "fields": [
+      {
+        "key": "uchunguzi_wa_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "uchunguzi_wa_tb",
+        "label": "Uchunguzi wa TB",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "kikohozi_kh",
+            "text": "Kikohozi(KH)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kikohozi_kh"
+          },
+          {
+            "key": "makohozi_yaliyochanganyikana_na_damu",
+            "text": "Makohozi Yaliyochanganyikana na Damu(D)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "makohozi_yaliyochanganyikana_na_damu"
+          },
+          {
+            "key": "homa_h",
+            "text": "Homa(H)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "homa_h"
+          },
+          {
+            "key": "kupungua_uzito",
+            "text": "Kupungua Uzito",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kupungua_uzito"
+          },
+          {
+            "key": "kutokwa_na_jasho_jingi_kuliko_kawaida_hasa_nyakati_za_usiku",
+            "text": "Kutokwa na Jasho Jingi kuliko kawaida hasa nyakati za usiku",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kutokwa_na_jasho_jingi_kuliko_kawaida_hasa_nyakati_za_usiku"
+          },
+          {
+            "key": "dalili_za_tb_nje_ya_mapafu_specify",
+            "text": "Dalili za TB Nje ya Mapafu(Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dalili_za_tb_nje_ya_mapafu_specify"
+          },
+          {
+            "key": "hana_dalili",
+            "text": "Hana Dalili",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hana_dalili"
+          }
+
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
+      },
+      {
+        "key": "specify_others_uchunguzi_kifua_kikuu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "specify_others_uchunguzi_kifua_kikuu",
+        "type": "edit_text",
+        "hint": "Please Specify",
+        "v_required": {
+          "value": true,
+          "err": "Please specify Others"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_uchunguzi_kifua_kikuu.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

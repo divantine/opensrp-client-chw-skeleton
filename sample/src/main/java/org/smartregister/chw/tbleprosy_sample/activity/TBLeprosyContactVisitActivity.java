@@ -10,7 +10,7 @@ import org.smartregister.chw.tbleprosy.activity.BaseTBLeprosyVisitActivity;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.presenter.BaseTBLeprosyVisitPresenter;
 import org.smartregister.chw.tbleprosy.util.Constants;
-import org.smartregister.chw.tbleprosy_sample.interactor.TBLeprosyServiceVisitInteractor;
+import org.smartregister.chw.tbleprosy_sample.interactor.TBLeprosyContactVisitInteractor;
 
 
 public class TBLeprosyContactVisitActivity extends BaseTBLeprosyVisitActivity {
@@ -29,7 +29,7 @@ public class TBLeprosyContactVisitActivity extends BaseTBLeprosyVisitActivity {
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseTBLeprosyVisitPresenter(memberObject, this, new TBLeprosyServiceVisitInteractor(Constants.EVENT_TYPE.tbleprosy_SERVICES));
+        presenter = new BaseTBLeprosyVisitPresenter(memberObject, this, new TBLeprosyContactVisitInteractor(Constants.EVENT_TYPE.tbleprosy_SERVICES));
     }
 
     @Override

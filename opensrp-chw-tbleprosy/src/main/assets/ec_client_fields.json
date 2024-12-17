@@ -1,7 +1,7 @@
 {
   "bindobjects": [
     {
-      "name": "ec_skeleton_register",
+      "name": "ec_tbleprosy_register",
       "columns": [
         {
           "column_name": "base_entity_id",

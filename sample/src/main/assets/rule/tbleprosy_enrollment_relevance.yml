@@ -1,7 +1,84 @@
 ---
-name: step1_enrollment_date
-description: tbleprosy enrollment_date
+name: step1_living_with_or_near_tb_leprosy_patient
+description: leprosy relevance
 priority: 1
-condition: "true"
+condition: "step1_screen_for_tb_or_leprosy == 'client_type_and_screening_location_new'"
 actions:
-  - "calculation = helper.getDateToday()"
+  - "isRelevant = true"
+---
+name: step1_is_it_a_kvp_client
+description: leprosy relevance
+priority: 1
+condition: "step1_screen_for_tb_or_leprosy == 'client_type_and_screening_location_new'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_specify_others_kvp
+description: leprosy relevance
+priority: 1
+condition: "step1_choose_kvp_group == 'others_specify'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_screening_location
+description: leprosy relevance
+priority: 1
+condition: "step1_screen_for_tb_or_leprosy == 'client_type_and_screening_location_new'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_patient_type
+description: leprosy relevance
+priority: 1
+condition: "step1_living_with_or_near_tb_leprosy_patient == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_choose_kvp_group
+description: leprosy relevance
+priority: 1
+condition: "step1_is_it_a_kvp_client == 'Yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tb_or_leprosy
+description: leprosy relevance
+priority: 1
+condition: "step1_screen_for_tb_or_leprosy == 'screen_for_tb_or_leprosy'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tb_screening_symptoms
+description: leprosy relevance
+priority: 1
+condition: "step1_tb_or_leprosy == 'TB'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_leprosy_screening_symptoms
+description: leprosy relevance
+priority: 1
+condition: "step1_tb_or_leprosy == 'Leprosy'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tested_for_hiv_new
+description: leprosy relevance
+priority: 1
+condition: "step1_screen_for_tb_or_leprosy == 'tested_for_hiv'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_specify_others
+description: leprosy relevance
+priority: 1
+condition: "step1_screening_location == 'other_specify'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tbleprosy_client_id
+description: leprosy relevance
+priority: 1
+condition: "step1_patient_type == 'tb'"
+actions:
+  - "isRelevant = true"

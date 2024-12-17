@@ -1,7 +1,7 @@
 <resources>
     <string name="error_unable_to_start_form">Hitilafu imetokea wakati wa kuanzisha fomu</string>
     <string name="error_unable_to_save_form">Hitilafu imetokea wakati wa kuhifadhi fomu</string>
-    <string name="skeleton">Skeleton</string>
+    <string name="tbleprosy">tbleprosy</string>
     <string name="add_member">Sajili mwanafamilia</string>
     <string name="sort">Panga</string>
     <string name="home">Nyumbani</string>
@@ -9,13 +9,13 @@
     <string name="scan_qr">Scan QR</string>
     <string name="job_aids">Vitendea kazi</string>
     <string name="saving_dialog_title">Kuhifadhi</string>
-    <string name="skeleton_followup_visit">Tembeleo la ufuatiliaji</string>
-    <string name="record_skeleton">Utoaji wa Huduma Ya SKELETON</string>
+    <string name="tbleprosy_followup_visit">Tembeleo la ufuatiliaji</string>
+    <string name="record_tbleprosy">Utoaji wa Huduma Ya tbleprosy</string>
 
 
     <string name="optional">Sio lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuitunza hii visit</string>
-    <string name="return_to_previous_page">Rudi kwenye wateja wote wa skeleton</string>
+    <string name="return_to_previous_page">Rudi kwenye wateja wote wa tbleprosy</string>
     <string name="last_visit_40_days_ago">Tembeleo la mwisho %1$s uliyopita</string>
     <string name="view_medical_history">Angalia historia ya huduma</string>
     <string name="call_no_number_provided">(Hakuna namba iliyotolewa)</string>
@@ -29,9 +29,9 @@
     <string name="vaccine_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>inakaribia (%2$s)</font></b>]]></string>
     <string name="vaccine_service_overdue"><![CDATA[%1$s <font color=#f04646>muda umepita (%2$s)</font></b>]]></string>
     <string name="vaccine_service_due"><![CDATA[%1$s <font color=#000000>imefika (%2$s)</font></b>]]></string>
-    <string name="call_skeleton_client">Mteja wa Skeleton</string>
+    <string name="call_tbleprosy_client">Mteja wa tbleprosy</string>
     <string name="head_of_family">Mkuu wa kaya</string>
-    <string name="skeleton_client">Mteja wa skeleton</string>
+    <string name="tbleprosy_client">Mteja wa tbleprosy</string>
     <string name="copy_to_clipboard">Nakili namba ya simu</string>
     <string name="copied_phone_number">Namba ya simu imenakiliwa</string>
     <string name="call">Piga simu</string>
@@ -45,8 +45,8 @@
     <string name="call_anc_client">Mjamzito</string>
     <string name="call_pnc_client">Mama aliyejifungua</string>
     <string name="call_head_of_family">Piga simu kwa mkuu wa kaya</string>
-    <string name="view_skeleton_test_result">Angalia majibu ya kipimo cha skeleton</string>
-    <string name="skeleton_positive">Skeleton chanya</string>
+    <string name="view_tbleprosy_test_result">Angalia majibu ya kipimo cha tbleprosy</string>
+    <string name="tbleprosy_positive">tbleprosy chanya</string>
     <string name="anc_string">Wajawazito</string>
     <string name="pnc_string">Baada ya kujifungua</string>
     <string name="visit_done">Tembeleo limekamilika</string>
@@ -59,19 +59,22 @@
     <string name="manual_process_visit">Chakata hudhurio</string>
     <string name="continue_visit">Endelea</string>
     <string name="edit_visit">Hariri</string>
-    <string name="skeleton_visit_in_progress">Hudhurio linaendelea</string>
-    <string name="skeleton_service_visit_in_progress">Huduma ya tohara inaendelea</string>
-    <string name="skeleton_procedure_visit_in_progress">Huduma ya upasuaji wa tohara inaendelea</string>
-    <string name="skeleton_visit_conducted">Hudhurio la tohara limefanyika</string>
+    <string name="tbleprosy_visit_in_progress">Hudhurio linaendelea</string>
+    <string name="tbleprosy_service_visit_in_progress">Huduma ya tohara inaendelea</string>
+    <string name="tbleprosy_procedure_visit_in_progress">Huduma ya upasuaji wa tohara inaendelea</string>
+    <string name="tbleprosy_visit_conducted">Hudhurio la tohara limefanyika</string>
 
-    <string name="skeleton_profile">Profile la tohara</string>
+    <string name="tbleprosy_profile">Profile la tohara</string>
 
-    <string name="skeleton_medical_history">Historia ya kitibabu</string>
-    <string name="skeleton_physical_examination">Uchunguzi wa kimwili</string>
-    <string name="skeleton_hts">Huduma za upimaji wa VVU</string>
-    <string name="skeleton_contraindication">Tatua vizuizi kwanza , kuendelea na upasuaji wa tohara</string>
+    <string name="tbleprosy_medical_history">Historia ya kitibabu</string>
+    <string name="tbleprosy_njia_uchunguzi_kifua_kikuu">Njia ya Uchunguzi Kifua Kikuu</string>
+    <string name="tbleprosy_uchunguzi_kifua_kikuu">Uchunguzi Kifua Kikuu</string>
+    <string name="tbleprosy_kuchukua_sampuli">Kuchukua Sampuli</string>
+    <string name="tbleprosy_physical_examination">Uchunguzi wa kimwili</string>
+    <string name="tbleprosy_hts">Huduma za upimaji wa VVU</string>
+    <string name="tbleprosy_contraindication">Tatua vizuizi kwanza , kuendelea na upasuaji wa tohara</string>
     <string name="no_phone_number">Hakuna nambari ya simu</string>
-    <string name="return_to_skeleton_clients">Rudi kwenye wateja wote wa tohara</string>
+    <string name="return_to_tbleprosy_clients">Rudi kwenye wateja wote wa tohara</string>
     <string name="number_not_filled">Nambari ya simu ya mteja, haijajazwa</string>
 
 </resources>

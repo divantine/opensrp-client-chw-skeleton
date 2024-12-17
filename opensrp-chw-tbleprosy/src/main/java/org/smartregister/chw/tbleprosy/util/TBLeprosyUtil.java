@@ -132,32 +132,32 @@ public class TBLeprosyUtil {
         return "";
     }
 
-    protected static Event getCloseSkeletonEvent(String jsonString,
+    protected static Event getClosetbleprosyEvent(String jsonString,
                                              String baseEntityId) {
 
-        Event closeSkeletonEvent = new Gson().
+        Event closetbleprosyEvent = new Gson().
                 fromJson(jsonString, Event.class);
 
-        closeSkeletonEvent.setEntityType(Constants.TABLES.SKELETON_ENROLLMENT);
-        closeSkeletonEvent.setEventType(Constants.EVENT_TYPE.CLOSE_SKELETON_SERVICE);
-        closeSkeletonEvent.setBaseEntityId(baseEntityId);
-        closeSkeletonEvent.setFormSubmissionId(JsonFormUtils.
+        closetbleprosyEvent.setEntityType(Constants.TABLES.tbleprosy_ENROLLMENT);
+        closetbleprosyEvent.setEventType(Constants.EVENT_TYPE.CLOSE_tbleprosy_SERVICE);
+        closetbleprosyEvent.setBaseEntityId(baseEntityId);
+        closetbleprosyEvent.setFormSubmissionId(JsonFormUtils.
                 generateRandomUUIDString());
-        closeSkeletonEvent.setEventDate(new Date());
-        return closeSkeletonEvent;
+        closetbleprosyEvent.setEventDate(new Date());
+        return closetbleprosyEvent;
     }
 
-    public static void closeSkeletonService(String baseEntityId) {
+    public static void closetbleprosyService(String baseEntityId) {
         AllSharedPreferences allSharedPreferences = TBLeprosyLibrary.
                 getInstance().
                 context().
                 allSharedPreferences();
-        Event closeSkeletonEvent = getCloseSkeletonEvent(new JSONObject().
+        Event closetbleprosyEvent = getClosetbleprosyEvent(new JSONObject().
                 toString(),
                 baseEntityId);
 
         try {
-            NCUtils.addEvent(allSharedPreferences, closeSkeletonEvent);
+            NCUtils.addEvent(allSharedPreferences, closetbleprosyEvent);
             NCUtils.startClientProcessing();
         } catch (Exception e) {
             Timber.e(e);

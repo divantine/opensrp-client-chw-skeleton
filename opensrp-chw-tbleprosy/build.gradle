@@ -15,7 +15,7 @@ plugins {
     id 'maven-publish'
 }
 
-description = 'OpenSRP CHW SKELETON library'
+description = 'OpenSRP CHW tbleprosy library'
 
 jacoco {
     toolVersion = "0.7.9"
@@ -105,7 +105,7 @@ publishing {
              ** Replace GITHUB_USERID with your/organisation Github userID
              ** and REPOSITORY with the repository name on GitHub
              */
-            url = uri("https://maven.pkg.github.com/Digital-Square-Tanzania/opensrp-client-chw-skeleton")
+            url = uri("https://maven.pkg.github.com/Digital-Square-Tanzania/opensrp-client-chw-tbleprosy")
             credentials {
                 /** Create github.properties in root project folder file with
                  ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN
@@ -122,7 +122,7 @@ publishing {
             groupId 'org.smartregister' // Library groupID
             artifactId getArtificatId()
             version getVersionName()
-            artifact("$buildDir/outputs/aar/opensrp-chw-skeleton-release.aar")
+            artifact("$buildDir/outputs/aar/opensrp-chw-tbleprosy-release.aar")
 
             //This is to carter for transitive dependencies within this library
             pom.withXml {

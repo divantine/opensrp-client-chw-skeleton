@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">opensrp-chw-testing</string>
     <string name="action_settings">Settings</string>
-    <string name="skeleton_client_profile">New Skeleton Client Profile</string>
-    <string name="skeleton_follow_up_visit">Follow up SKELETON Client Profile</string>
+    <string name="tbleprosy_client_profile">New tbleprosy Client Profile</string>
+    <string name="tbleprosy_follow_up_visit">Follow up tbleprosy Client Profile</string>
+    <string name="tbleprosy_client_registration">TB/Leprosy Client Registration</string>
+    <string name="tbleprosy_mobilization_area">TB/Leprosy Mobilization Area</string>
+    <string name="tbleprosy_tb_leprosy_screening">TB/Leprosy Screening</string>
+    <string name="tbleprosy_contact_visit">TB/Leprosy Contact Visit</string>
 </resources>

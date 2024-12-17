@@ -1,8 +1,8 @@
-package org.smartregister.chw.skeleton_sample.interactor;
+package org.smartregister.chw.tbleprosy_sample.interactor;
 
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.interactor.BaseTBLeprosyServiceVisitInteractor;
-import org.smartregister.chw.skeleton_sample.activity.EntryActivity;
+import org.smartregister.chw.tbleprosy_sample.activity.EntryActivity;
 
 
 public class TBLeprosyServiceVisitInteractor extends BaseTBLeprosyServiceVisitInteractor {

@@ -321,34 +321,19 @@
         }
       },
       {
-        "key": "other_specify_pop",
+        "key": "phone_number",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "other_specify_pop",
+        "openmrs_entity_id": "159635AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "edit_text",
-        "hint": "Please Specify",
-        "v_required": {
-          "value": true,
-          "err": "Please specify Number of females"
+        "hint": "Phone number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Must be a number."
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tbleprosy_mobilization_demand_creation.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "iec_materials_provided",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "iec_materials_provided",
-        "type": "edit_text",
-        "hint": "Number of IEC Materials Provided",
         "v_required": {
-          "value": true,
-          "err": "Please specify Number of females"
+          "value": false,
+          "err": "Please specify the phone number"
         }
       }
     ]

@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("org.smartregister.skeleton.test", appContext.getPackageName());
+        assertEquals("org.smartregister.tbleprosy.test", appContext.getPackageName());
     }
 }

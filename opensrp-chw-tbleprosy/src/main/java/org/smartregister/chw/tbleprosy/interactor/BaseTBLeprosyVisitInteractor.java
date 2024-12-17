@@ -69,7 +69,7 @@ public class BaseTBLeprosyVisitInteractor implements BaseTBLeprosyVisitContract.
         if(StringUtils.isNotBlank(visitType)){
             return visitType;
         }
-        return Constants.EVENT_TYPE.SKELETON_ENROLLMENT;
+        return Constants.EVENT_TYPE.tbleprosy_ENROLLMENT;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class BaseTBLeprosyVisitInteractor implements BaseTBLeprosyVisitContract.
     }
 
     /**
-     * Default if profile type is not provided is SKELETON/PrEP member
+     * Default if profile type is not provided is tbleprosy/PrEP member
      *
      * @param memberID    unique identifier for the user
      * @param profileType profile type being used
@@ -356,11 +356,11 @@ public class BaseTBLeprosyVisitInteractor implements BaseTBLeprosyVisitContract.
      */
     protected void prepareEvent(Event baseEvent) {
         if (baseEvent != null) {
-            // add skeleton_visit_date date obs and last
+            // add tbleprosy_visit_date date obs and last
             List<Object> list = new ArrayList<>();
             list.add(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
-            baseEvent.addObs(new Obs("concept", "text", "skeleton_visit_date", "",
-                    list, new ArrayList<>(), null, "skeleton_visit_date"));
+            baseEvent.addObs(new Obs("concept", "text", "tbleprosy_visit_date", "",
+                    list, new ArrayList<>(), null, "tbleprosy_visit_date"));
         }
     }
 
@@ -374,10 +374,10 @@ public class BaseTBLeprosyVisitInteractor implements BaseTBLeprosyVisitContract.
     }
 
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.SKELETON_ENROLLMENT;
+        return Constants.EVENT_TYPE.tbleprosy_ENROLLMENT;
     }
 
     protected String getTableName() {
-        return Constants.TABLES.SKELETON_ENROLLMENT;
+        return Constants.TABLES.tbleprosy_ENROLLMENT;
     }
 }

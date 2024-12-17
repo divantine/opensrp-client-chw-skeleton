@@ -69,7 +69,7 @@ public class BaseTBLeprosyVisitActivity extends SecuredActivity implements BaseT
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base_skeleton_visit_activity);
+        setContentView(R.layout.activity_base_tbleprosy_visit_activity);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             memberObject = (MemberObject) getIntent().getSerializableExtra(Constants.ACTIVITY_PAYLOAD.MEMBER_PROFILE_OBJECT);
@@ -184,21 +184,21 @@ public class BaseTBLeprosyVisitActivity extends SecuredActivity implements BaseT
     }
 
     @Override
-    public void startForm(BaseTBLeprosyVisitAction skeletonHomeVisitAction) {
-        current_action = skeletonHomeVisitAction.getTitle();
+    public void startForm(BaseTBLeprosyVisitAction tbleprosyHomeVisitAction) {
+        current_action = tbleprosyHomeVisitAction.getTitle();
 
-        if (StringUtils.isNotBlank(skeletonHomeVisitAction.getJsonPayload())) {
+        if (StringUtils.isNotBlank(tbleprosyHomeVisitAction.getJsonPayload())) {
             try {
-                JSONObject jsonObject = new JSONObject(skeletonHomeVisitAction.getJsonPayload());
+                JSONObject jsonObject = new JSONObject(tbleprosyHomeVisitAction.getJsonPayload());
                 startFormActivity(jsonObject);
             } catch (Exception e) {
                 Timber.e(e);
                 String locationId = TBLeprosyLibrary.getInstance().context().allSharedPreferences().getPreference(AllConstants.CURRENT_LOCATION_ID);
-                presenter().startForm(skeletonHomeVisitAction.getFormName(), memberObject.getBaseEntityId(), locationId);
+                presenter().startForm(tbleprosyHomeVisitAction.getFormName(), memberObject.getBaseEntityId(), locationId);
             }
         } else {
             String locationId = TBLeprosyLibrary.getInstance().context().allSharedPreferences().getPreference(AllConstants.CURRENT_LOCATION_ID);
-            presenter().startForm(skeletonHomeVisitAction.getFormName(), memberObject.getBaseEntityId(), locationId);
+            presenter().startForm(tbleprosyHomeVisitAction.getFormName(), memberObject.getBaseEntityId(), locationId);
         }
     }
 
@@ -215,11 +215,11 @@ public class BaseTBLeprosyVisitActivity extends SecuredActivity implements BaseT
     }
 
     @Override
-    public void startFragment(BaseTBLeprosyVisitAction skeletonHomeVisitAction) {
-        current_action = skeletonHomeVisitAction.getTitle();
+    public void startFragment(BaseTBLeprosyVisitAction tbleprosyHomeVisitAction) {
+        current_action = tbleprosyHomeVisitAction.getTitle();
 
-        if (skeletonHomeVisitAction.getDestinationFragment() != null)
-            skeletonHomeVisitAction.getDestinationFragment().show(getSupportFragmentManager(), current_action);
+        if (tbleprosyHomeVisitAction.getDestinationFragment() != null)
+            tbleprosyHomeVisitAction.getDestinationFragment().show(getSupportFragmentManager(), current_action);
     }
 
     @Override
@@ -258,7 +258,7 @@ public class BaseTBLeprosyVisitActivity extends SecuredActivity implements BaseT
     }
 
     @Override
-    public Map<String, BaseTBLeprosyVisitAction> getSkeletonVisitActions() {
+    public Map<String, BaseTBLeprosyVisitAction> gettbleprosyVisitActions() {
         return actionList;
     }
 
@@ -286,9 +286,9 @@ public class BaseTBLeprosyVisitActivity extends SecuredActivity implements BaseT
 
     @Override
     public void onDialogOptionUpdated(String jsonString) {
-        BaseTBLeprosyVisitAction skeletonVisitAction = actionList.get(current_action);
-        if (skeletonVisitAction != null) {
-            skeletonVisitAction.setJsonPayload(jsonString);
+        BaseTBLeprosyVisitAction tbleprosyVisitAction = actionList.get(current_action);
+        if (tbleprosyVisitAction != null) {
+            tbleprosyVisitAction.setJsonPayload(jsonString);
         }
 
         if (mAdapter != null) {

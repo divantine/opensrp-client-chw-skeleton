@@ -1,16 +1,13 @@
-package org.smartregister.chw.skeleton_sample.activity;
+package org.smartregister.chw.tbleprosy_sample.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.vijay.jsonwizard.activities.JsonFormActivity;
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
-import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
-import com.vijay.jsonwizard.utils.FormUtils;
 
 
 import org.json.JSONObject;
@@ -41,7 +38,7 @@ public class TBLeprosyMemberProfileActivity extends BaseTBLeprosyProfileActivity
     @Override
     public void openFollowupVisit() {
         try {
-            startForm("skeleton_enrollment");
+            startForm("tbleprosy_enrollment");
         } catch (Exception e) {
             Timber.e(e);
         }
@@ -80,7 +77,7 @@ public class TBLeprosyMemberProfileActivity extends BaseTBLeprosyProfileActivity
 
     @Override
     public void startServiceForm() {
-        TBLeprosyServiceActivity.startSkeletonVisitActivity(this, memberObject.getBaseEntityId(), false);
+        TBLeprosyServiceActivity.starttbleprosyVisitActivity(this, memberObject.getBaseEntityId(), false);
     }
 
 
@@ -125,7 +122,7 @@ public class TBLeprosyMemberProfileActivity extends BaseTBLeprosyProfileActivity
                 JSONObject form = new JSONObject(jsonString);
                 String encounterType = form.getString(Constants.JSON_FORM_EXTRA.EVENT_TYPE);
                 switch (encounterType) {
-                    case Constants.EVENT_TYPE.SKELETON_SERVICES:
+                    case Constants.EVENT_TYPE.tbleprosy_SERVICES:
                         serviceVisit = new Visit();
                         serviceVisit.setProcessed(true);
                         serviceVisit.setJson(jsonString);

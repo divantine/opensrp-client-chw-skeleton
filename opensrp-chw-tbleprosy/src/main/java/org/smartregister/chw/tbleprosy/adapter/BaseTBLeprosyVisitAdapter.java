@@ -23,12 +23,12 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLeprosyVisitAdapter.MyViewHolder> {
-    private Map<String, BaseTBLeprosyVisitAction> skeletonVisitActionList;
+    private Map<String, BaseTBLeprosyVisitAction> tbleprosyVisitActionList;
     private Context context;
     private BaseTBLeprosyVisitContract.View visitContractView;
 
     public BaseTBLeprosyVisitAdapter(Context context, BaseTBLeprosyVisitContract.View view, LinkedHashMap<String, BaseTBLeprosyVisitAction> myDataset) {
-        skeletonVisitActionList = myDataset;
+        tbleprosyVisitActionList = myDataset;
         this.context = context;
         this.visitContractView = view;
     }
@@ -38,7 +38,7 @@ public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLepros
     public BaseTBLeprosyVisitAdapter.MyViewHolder onCreateViewHolder(@NotNull ViewGroup parent,
                                                                      int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.skeleton_visit_item, parent, false);
+                .inflate(R.layout.tbleprosy_visit_item, parent, false);
         return new MyViewHolder(v);
     }
 
@@ -50,7 +50,7 @@ public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLepros
      */
     private BaseTBLeprosyVisitAction getByPosition(int position) {
         int count = -1;
-        for (Map.Entry<String, BaseTBLeprosyVisitAction> entry : skeletonVisitActionList.entrySet()) {
+        for (Map.Entry<String, BaseTBLeprosyVisitAction> entry : tbleprosyVisitActionList.entrySet()) {
             if (entry.getValue().isValid())
                 count++;
 
@@ -65,12 +65,12 @@ public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLepros
     @Override
     public void onBindViewHolder(@NotNull MyViewHolder holder, int position) {
 
-        BaseTBLeprosyVisitAction skeletonVisitAction = getByPosition(position);
-        if (skeletonVisitAction == null)
+        BaseTBLeprosyVisitAction tbleprosyVisitAction = getByPosition(position);
+        if (tbleprosyVisitAction == null)
 
             return;
 
-        if (!skeletonVisitAction.isEnabled()) {
+        if (!tbleprosyVisitAction.isEnabled()) {
             holder.titleText.setTextColor(context.getResources().getColor(R.color.grey));
             holder.descriptionText.setTextColor(context.getResources().getColor(R.color.grey));
         } else {
@@ -78,19 +78,19 @@ public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLepros
         }
 
         String title = MessageFormat.format("{0}<i>{1}</i>",
-                skeletonVisitAction.getTitle(),
-                skeletonVisitAction.isOptional() ? " - " + context.getString(R.string.optional) : ""
+                tbleprosyVisitAction.getTitle(),
+                tbleprosyVisitAction.isOptional() ? " - " + context.getString(R.string.optional) : ""
         );
         holder.titleText.setText(Html.fromHtml(title));
-        if (StringUtils.isNotBlank(skeletonVisitAction.getSubTitle())) {
+        if (StringUtils.isNotBlank(tbleprosyVisitAction.getSubTitle())) {
 
-            if (skeletonVisitAction.isEnabled()) {
+            if (tbleprosyVisitAction.isEnabled()) {
                 holder.descriptionText.setVisibility(View.VISIBLE);
                 holder.invalidText.setVisibility(View.GONE);
-                holder.descriptionText.setText(skeletonVisitAction.getSubTitle());
+                holder.descriptionText.setText(tbleprosyVisitAction.getSubTitle());
 
-                boolean isOverdue = skeletonVisitAction.getScheduleStatus() == BaseTBLeprosyVisitAction.ScheduleStatus.OVERDUE &&
-                        skeletonVisitAction.isEnabled();
+                boolean isOverdue = tbleprosyVisitAction.getScheduleStatus() == BaseTBLeprosyVisitAction.ScheduleStatus.OVERDUE &&
+                        tbleprosyVisitAction.isEnabled();
 
                 holder.descriptionText.setTextColor(
                         isOverdue ? context.getResources().getColor(R.color.alert_urgent_red) :
@@ -100,13 +100,13 @@ public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLepros
             } else {
                 holder.descriptionText.setVisibility(View.GONE);
                 holder.invalidText.setVisibility(View.VISIBLE);
-                holder.invalidText.setText(Html.fromHtml("<i>" + skeletonVisitAction.getDisabledMessage() + "</i>"));
+                holder.invalidText.setText(Html.fromHtml("<i>" + tbleprosyVisitAction.getDisabledMessage() + "</i>"));
             }
         } else {
             holder.descriptionText.setVisibility(View.GONE);
         }
 
-        int color_res = getCircleColor(skeletonVisitAction);
+        int color_res = getCircleColor(tbleprosyVisitAction);
 
         holder.circleImageView.setCircleBackgroundColor(context.getResources().getColor(color_res));
         holder.circleImageView.setImageResource(R.drawable.ic_checked);
@@ -118,17 +118,17 @@ public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLepros
             holder.circleImageView.setBorderColor(context.getResources().getColor(color_res));
         }
 
-        bindClickListener(holder.getView(), skeletonVisitAction);
+        bindClickListener(holder.getView(), tbleprosyVisitAction);
     }
 
-    private int getCircleColor(BaseTBLeprosyVisitAction skeletonVisitAction) {
+    private int getCircleColor(BaseTBLeprosyVisitAction tbleprosyVisitAction) {
 
         int color_res;
-        boolean valid = skeletonVisitAction.isValid() && skeletonVisitAction.isEnabled();
+        boolean valid = tbleprosyVisitAction.isValid() && tbleprosyVisitAction.isEnabled();
         if (!valid)
             return R.color.transparent_gray;
 
-        switch (skeletonVisitAction.getActionStatus()) {
+        switch (tbleprosyVisitAction.getActionStatus()) {
             case PENDING:
                 color_res = R.color.transparent_gray;
                 break;
@@ -145,17 +145,17 @@ public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLepros
         return color_res;
     }
 
-    private void bindClickListener(View view, final BaseTBLeprosyVisitAction skeletonVisitAction) {
-        if (!skeletonVisitAction.isEnabled() || !skeletonVisitAction.isValid()) {
+    private void bindClickListener(View view, final BaseTBLeprosyVisitAction tbleprosyVisitAction) {
+        if (!tbleprosyVisitAction.isEnabled() || !tbleprosyVisitAction.isValid()) {
             view.setOnClickListener(null);
             return;
         }
 
         view.setOnClickListener(v -> {
-            if (StringUtils.isNotBlank(skeletonVisitAction.getFormName())) {
-                visitContractView.startForm(skeletonVisitAction);
+            if (StringUtils.isNotBlank(tbleprosyVisitAction.getFormName())) {
+                visitContractView.startForm(tbleprosyVisitAction);
             } else {
-                visitContractView.startFragment(skeletonVisitAction);
+                visitContractView.startFragment(tbleprosyVisitAction);
             }
             visitContractView.redrawVisitUI();
         });
@@ -164,7 +164,7 @@ public class BaseTBLeprosyVisitAdapter extends RecyclerView.Adapter<BaseTBLepros
     @Override
     public int getItemCount() {
         int count = 0;
-        for (Map.Entry<String, BaseTBLeprosyVisitAction> entry : skeletonVisitActionList.entrySet()) {
+        for (Map.Entry<String, BaseTBLeprosyVisitAction> entry : tbleprosyVisitActionList.entrySet()) {
             if (entry.getValue().isValid())
                 count++;
         }

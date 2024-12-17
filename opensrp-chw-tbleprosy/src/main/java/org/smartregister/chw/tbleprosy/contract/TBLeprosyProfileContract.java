@@ -38,7 +38,7 @@ public interface TBLeprosyProfileContract {
 
         void refreshProfileBottom();
 
-        void recordSkeletonButton(String visitState);
+        void recordtbleprosyButton(String visitState);
     }
 
     interface Interactor {

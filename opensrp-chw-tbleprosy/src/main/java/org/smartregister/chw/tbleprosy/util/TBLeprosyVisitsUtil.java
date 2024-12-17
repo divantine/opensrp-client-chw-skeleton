@@ -39,7 +39,7 @@ public class TBLeprosyVisitsUtil extends VisitUtils {
             Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
             int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
             if (daysDiff > 1) {
-                if (v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.SKELETON_FOLLOW_UP_VISIT) && getSkeletonVisitStatus(v).equals(Complete)) {
+                if (v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.tbleprosy_FOLLOW_UP_VISIT) && gettbleprosyVisitStatus(v).equals(Complete)) {
                     prepFollowupVisit.add(v);
                 }
             }
@@ -63,7 +63,7 @@ public class TBLeprosyVisitsUtil extends VisitUtils {
         NCUtils.startClientProcessing();
     }
 
-    public static String getSkeletonVisitStatus(Visit lastVisit) {
+    public static String gettbleprosyVisitStatus(Visit lastVisit) {
         HashMap<String, Boolean> completionObject = new HashMap<>();
         try {
             JSONObject jsonObject = new JSONObject(lastVisit.getJson());
@@ -80,7 +80,7 @@ public class TBLeprosyVisitsUtil extends VisitUtils {
         return getActionStatus(completionObject);
     }
 
-    public static String getSkeletonServiceVisitStatus(Visit lastVisit) {
+    public static String gettbleprosyServiceVisitStatus(Visit lastVisit) {
         HashMap<String, Boolean> completionObject = new HashMap<>();
         try {
             JSONObject jsonObject = new JSONObject(lastVisit.getJson());
@@ -97,7 +97,7 @@ public class TBLeprosyVisitsUtil extends VisitUtils {
         return getActionStatus(completionObject);
     }
 
-    public static String getSkeletonProcedureVisitStatus(Visit lastVisit) {
+    public static String gettbleprosyProcedureVisitStatus(Visit lastVisit) {
         HashMap<String, Boolean> completionObject = new HashMap<>();
         try {
             JSONObject jsonObject = new JSONObject(lastVisit.getJson());

@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name" translatable="false">skeleton</string>
+    <string name="app_name" translatable="false">tbleprosy</string>
     <string name="error_unable_to_start_form">An error occurred when starting the form</string>
     <string name="error_unable_to_save_form">An error occurred when saving the form</string>
-    <string name="skeleton">Skeleton</string>
+    <string name="tbleprosy">tbleprosy</string>
     <string name="add_member">Add Member</string>
     <string name="sort">Sort</string>
     <string name="home">Home</string>
@@ -11,25 +11,31 @@
     <string name="job_aids">Job Aids</string>
     <string name="saving_dialog_title">Saving</string>
     <string name="interpunct" translatable="false">\u00b7</string>
-    <string name="record_skeleton">Provide SKELETON Services</string>
+    <string name="record_tbleprosy">Provide tbleprosy Services</string>
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="edit_visit">Edit</string>
-    <string name="skeleton_visit_in_progress">Visit In Progress</string>
-    <string name="skeleton_service_visit_in_progress">Skeleton Service In Progress</string>
-    <string name="skeleton_procedure_visit_in_progress">Skeleton Procedure In Progress</string>
-    <string name="skeleton_visit_conducted">SKELETON Visit Conducted</string>
+    <string name="tbleprosy_visit_in_progress">Visit In Progress</string>
+    <string name="tbleprosy_service_visit_in_progress">tbleprosy Service In Progress</string>
+    <string name="tbleprosy_procedure_visit_in_progress">tbleprosy Procedure In Progress</string>
+    <string name="tbleprosy_visit_conducted">tbleprosy Visit Conducted</string>
 
-    <string name="skeleton_profile">SKELETON Profile</string>
+    <string name="tbleprosy_profile">tbleprosy Profile</string>
 
-    <string name="skeleton_medical_history">Medical History</string>
-    <string name="skeleton_followup_visit">Follow Up Visit</string>
-    <string name="skeleton_physical_examination">Physical Examination</string>
-    <string name="skeleton_hts">HTS</string>
+    <string name="tbleprosy_medical_history">Medical History</string>
+    <string name="tbleprosy_followup_visit">Follow Up Visit</string>
+    <string name="tbleprosy_physical_examination">Physical Examination</string>
+
+    <string name="tbleprosy_hts">HTS</string>
+
+    <string name="tbleprosy_njia_uchunguzi_kifua_kikuu">Njia ya Uchunguzi Kifua Kikuu</string>
+    <string name="tbleprosy_uchunguzi_kifua_kikuu">Uchunguzi Kifua Kikuu</string>
+    <string name="tbleprosy_kuchukua_sampuli">Kuchukua Sampuli</string>
+
 
     <string name="optional">Optional</string>
     <string name="error_unable_save_visit">Unable to save visit</string>
-    <string name="return_to_previous_page">Return all Skeleton Clients</string>
+    <string name="return_to_previous_page">Return all tbleprosy Clients</string>
     <string name="last_visit_40_days_ago">Last visit %1$s ago</string>
     <string name="view_medical_history">View medical history</string>
     <string name="call_no_number_provided">(no number provided)</string>
@@ -43,10 +49,10 @@
     <string name="vaccine_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>upcoming (%2$s)</font></b>]]></string>
     <string name="vaccine_service_overdue"><![CDATA[%1$s <font color=#f04646>overdue (%2$s)</font></b>]]></string>
     <string name="vaccine_service_due"><![CDATA[%1$s <font color=#000000>due (%2$s)</font></b>]]></string>
-    <string name="call_skeleton_client">Skeleton Client</string>
+    <string name="call_tbleprosy_client">tbleprosy Client</string>
     <string name="head_of_family">Head of family</string>
-    <string name="skeleton_client">Skeleton Client</string>
-    <string name="skeleton_contraindication">Clear Contraindication first, to proceed with MC procedure</string>
+    <string name="tbleprosy_client">tbleprosy Client</string>
+    <string name="tbleprosy_contraindication">Clear Contraindication first, to proceed with MC procedure</string>
     <string name="copy_to_clipboard">Copy to clipboard</string>
     <string name="copied_phone_number">PhoneNumber copied to clipboard</string>
     <string name="call">Call</string>
@@ -61,15 +67,15 @@
     <string name="call_anc_client">ANC Client</string>
     <string name="call_pnc_client">PNC Client</string>
     <string name="call_head_of_family">Call Head of Family</string>
-    <string name="view_skeleton_test_result">View skeleton test results</string>
-    <string name="skeleton_positive">Skeleton positive</string>
+    <string name="view_tbleprosy_test_result">View tbleprosy test results</string>
+    <string name="tbleprosy_positive">tbleprosy positive</string>
     <string name="anc_string">ANC</string>
     <string name="pnc_string">PNC</string>
     <string name="visit_done">Visit Done</string>
     <string name="edit">EDIT</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
-    <string name="return_to_skeleton_clients">Return to SKELETON Clients</string>
+    <string name="return_to_tbleprosy_clients">Return to tbleprosy Clients</string>
     <string name="number_not_filled">client phone number, not filled</string>
 
 </resources>

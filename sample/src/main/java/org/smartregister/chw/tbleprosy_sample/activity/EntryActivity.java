@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.activity;
+package org.smartregister.chw.tbleprosy_sample.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,10 +7,16 @@ import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
+import com.vijay.jsonwizard.domain.Form;
+import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
+
+import org.json.JSONObject;
 import org.smartregister.chw.tbleprosy.contract.BaseTBLeprosyVisitContract;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
+import org.smartregister.chw.tbleprosy.util.Constants;
 import org.smartregister.chw.tbleprosy.util.DBConstants;
-import org.smartregister.chw.skeleton_sample.R;
+import org.smartregister.chw.tbleprosy_sample.R;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.view.activity.SecuredActivity;
 
@@ -20,8 +26,7 @@ import java.util.Map;
 import timber.log.Timber;
 
 public class EntryActivity extends SecuredActivity implements View.OnClickListener, BaseTBLeprosyVisitContract.VisitView {
-    private static MemberObject skeletonMemberObject;
-
+    private static MemberObject tbleprosyMemberObject;
     public static MemberObject getSampleMember() {
         Map<String, String> details = new HashMap<>();
         details.put(DBConstants.KEY.FIRST_NAME, "Glory");
@@ -38,20 +43,19 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         CommonPersonObjectClient commonPersonObject = new CommonPersonObjectClient("", details, "Yo");
         commonPersonObject.setColumnmaps(details);
 
-        if (skeletonMemberObject == null) {
-            skeletonMemberObject = new MemberObject();
-            skeletonMemberObject.setFirstName("Glory");
-            skeletonMemberObject.setLastName("Juma");
-            skeletonMemberObject.setMiddleName("Ali");
-            skeletonMemberObject.setGender("Female");
-            skeletonMemberObject.setMartialStatus("Married");
-            skeletonMemberObject.setDob("1982-01-18T03:00:00.000+03:00");
-            skeletonMemberObject.setUniqueId("3503504");
-            skeletonMemberObject.setBaseEntityId("3503504");
-            skeletonMemberObject.setFamilyBaseEntityId("3503504");
+        if (tbleprosyMemberObject == null) {
+            tbleprosyMemberObject = new MemberObject();
+            tbleprosyMemberObject.setFirstName("Glory");
+            tbleprosyMemberObject.setLastName("Juma");
+            tbleprosyMemberObject.setMiddleName("Ali");
+            tbleprosyMemberObject.setGender("Female");
+            tbleprosyMemberObject.setMartialStatus("Married");
+            tbleprosyMemberObject.setDob("1982-01-18T03:00:00.000+03:00");
+            tbleprosyMemberObject.setUniqueId("3503504");
+            tbleprosyMemberObject.setBaseEntityId("3503504");
+            tbleprosyMemberObject.setFamilyBaseEntityId("3503504");
         }
-
-        return skeletonMemberObject;
+        return tbleprosyMemberObject;
     }
 
     @Override
@@ -62,11 +66,14 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        findViewById(R.id.skeleton_activity).setOnClickListener(this);
-        findViewById(R.id.skeleton_home_visit).setOnClickListener(this);
-        findViewById(R.id.skeleton_profile).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_activity).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_screening).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_contact_visit).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_mobilization_area).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_client_registration).setOnClickListener(this);
     }
-
     @Override
     protected void onCreation() {
         Timber.v("onCreation");
@@ -80,18 +87,65 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.skeleton_activity:
+            case R.id.tbleprosy_activity:
                 startActivity(new Intent(this, TBLeprosyRegisterActivity.class));
                 break;
-            case R.id.skeleton_home_visit:
-                TBLeprosyServiceActivity.startSkeletonVisitActivity(this, "12345", true);
+            case R.id.tbleprosy_home_visit:
+                TBLeprosyServiceActivity.starttbleprosyVisitActivity(this, "12345", true);
                 break;
-            case R.id.skeleton_profile:
+            case R.id.tbleprosy_profile:
                 TBLeprosyMemberProfileActivity.startMe(this, "12345");
+                break;
+            case R.id.tbleprosy_screening:
+                try {
+                    startForm("tbleprosy_enrollment");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case R.id.tbleprosy_mobilization_area:
+                try {
+                    startForm("tbleprosy_mobilization_demand_creation");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case R.id.tbleprosy_client_registration:
+                try {
+                    startForm("tbleprosy_client_registration");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case R.id.tbleprosy_contact_visit:
+                TBLeprosyContactVisitActivity.starttbleprosyVisitActivity(this, "12345", true);
                 break;
             default:
                 break;
         }
+    }
+
+    private void startForm(String formName) throws Exception {
+        JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
+
+        String currentLocationId = "Tanzania";
+        if (jsonForm != null) {
+            jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
+            Intent intent = new Intent(this, JsonWizardFormActivity.class);
+            intent.putExtra("json", jsonForm.toString());
+
+            Form form = new Form();
+            form.setWizard(true);
+            form.setNextLabel("Next");
+            form.setPreviousLabel("Previous");
+            form.setSaveLabel("Save");
+            form.setHideSaveLabel(true);
+
+            intent.putExtra("form", form);
+            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
+
+        }
+
     }
 
     @Override

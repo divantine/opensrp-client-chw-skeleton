@@ -54,7 +54,7 @@ public class BaseTBLeprosyVisitPresenter implements BaseTBLeprosyVisitContract.P
     public void submitVisit() {
         if (view.get() != null) {
             view.get().displayProgressBar(true);
-            interactor.submitVisit(view.get().getEditMode(), memberObject.getBaseEntityId(), view.get().getSkeletonVisitActions(), this);
+            interactor.submitVisit(view.get().getEditMode(), memberObject.getBaseEntityId(), view.get().gettbleprosyVisitActions(), this);
         }
     }
 

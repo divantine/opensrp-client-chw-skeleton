@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.provider;
+package org.smartregister.chw.tbleprosy_sample.provider;
 
 import android.app.Activity;
 import android.content.res.Resources;

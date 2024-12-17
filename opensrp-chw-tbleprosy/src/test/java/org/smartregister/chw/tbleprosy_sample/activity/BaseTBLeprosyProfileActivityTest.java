@@ -1,4 +1,4 @@
-package org.smartregister.chw.skeleton_sample.activity;
+package org.smartregister.chw.tbleprosy_sample.activity;
 
 import static org.mockito.Mockito.validateMockitoUsage;
 

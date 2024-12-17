@@ -6,7 +6,7 @@ public interface Constants {
     String ENCOUNTER_TYPE = "encounter_type";
     String STEP_ONE = "step1";
     String STEP_TWO = "step2";
-    String SKELETON_VISIT_GROUP = "skeleton_visit_group";
+    String tbleprosy_VISIT_GROUP = "tbleprosy_visit_group";
 
 
     interface JSON_FORM_EXTRA {
@@ -16,34 +16,43 @@ public interface Constants {
     }
 
     interface EVENT_TYPE {
-        String SKELETON_ENROLLMENT = "Skeleton Enrollment";
-        String SKELETON_SERVICES = "Skeleton Services";
-        String SKELETON_FOLLOW_UP_VISIT = "Skeleton Follow-up Visit";
+        String tbleprosy_ENROLLMENT = "tbleprosy Enrollment";
+        String tbleprosy_SERVICES = "tbleprosy Services";
+        String tbleprosy_FOLLOW_UP_VISIT = "tbleprosy Follow-up Visit";
         String VOID_EVENT = "Void Event";
-        String CLOSE_SKELETON_SERVICE = "Close Skeleton Service";
+        String CLOSE_tbleprosy_SERVICE = "Close tbleprosy Service";
+
+        String NJIA_YA_UCHUNGUZI ="Njia ya Uchunguzi Kifua Kikuu";
+
 
     }
 
     interface FORMS {
-        String SKELETON_REGISTRATION = "skeleton_enrollment";
-        String SKELETON_FOLLOW_UP_VISIT = "skeleton_followup_visit";
+        String tbleprosy_REGISTRATION = "tbleprosy_enrollment";
+        String tbleprosy_FOLLOW_UP_VISIT = "tbleprosy_followup_visit";
     }
 
-    interface SKELETON_FOLLOWUP_FORMS {
-        String MEDICAL_HISTORY = "skeleton_service_medical_history";
-        String PHYSICAL_EXAMINATION = "skeleton_service_physical_examination";
-        String HTS = "skeleton_service_hts";
+    interface tbleprosy_FOLLOWUP_FORMS {
+        String MEDICAL_HISTORY = "tbleprosy_service_medical_history";
+        String PHYSICAL_EXAMINATION = "tbleprosy_service_physical_examination";
+        String HTS = "tbleprosy_service_hts";
+
+        String UCHUNGUZI_KIFUA_KIKUU = "tbleprosy_njia_uchunguzi_kifua_kikuu";
+        String UCHUNGUZI_KIFUA = "tbleprosy_uchunguzi_kifua_kikuu";
+
+        String KUCHUKUA_SAMPULI = "tbleprosy_kuchukua_sampuli";
+
     }
 
     interface TABLES {
-        String SKELETON_ENROLLMENT = "ec_skeleton_enrollment";
-        String SKELETON_SERVICE = "ec_skeleton_services";
+        String tbleprosy_ENROLLMENT = "ec_tbleprosy_enrollment";
+        String tbleprosy_SERVICE = "ec_tbleprosy_services";
     }
 
     interface ACTIVITY_PAYLOAD {
         String BASE_ENTITY_ID = "BASE_ENTITY_ID";
         String FAMILY_BASE_ENTITY_ID = "FAMILY_BASE_ENTITY_ID";
-        String SKELETON_FORM_NAME = "SKELETON_FORM_NAME";
+        String tbleprosy_FORM_NAME = "tbleprosy_FORM_NAME";
         String MEMBER_PROFILE_OBJECT = "MemberObject";
         String EDIT_MODE = "editMode";
         String PROFILE_TYPE = "profile_type";
@@ -56,15 +65,15 @@ public interface Constants {
     }
 
     interface CONFIGURATION {
-        String SKELETON_ENROLLMENT = "skeleton_enrollment";
+        String tbleprosy_ENROLLMENT = "tbleprosy_enrollment";
     }
 
-    interface SKELETON_MEMBER_OBJECT {
+    interface tbleprosy_MEMBER_OBJECT {
         String MEMBER_OBJECT = "memberObject";
     }
 
     interface PROFILE_TYPES {
-        String SKELETON_PROFILE = "skeleton_profile";
+        String tbleprosy_PROFILE = "tbleprosy_profile";
     }
 
     interface VALUES {
